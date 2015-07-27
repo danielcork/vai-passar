@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-light-webfont.eot');
+    src: url('freighttext-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-light-webfont.woff2') format('woff2'),
+         url('freighttext-light-webfont.woff') format('woff'),
+         url('freighttext-light-webfont.ttf') format('truetype'),
+         url('freighttext-light-webfont.svg#freighttextlight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-book-webfont.eot');
+    src: url('freighttext-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-book-webfont.woff2') format('woff2'),
+         url('freighttext-book-webfont.woff') format('woff'),
+         url('freighttext-book-webfont.ttf') format('truetype'),
+         url('freighttext-book-webfont.svg#freighttextbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-medium-webfont.eot');
+    src: url('freighttext-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-medium-webfont.woff2') format('woff2'),
+         url('freighttext-medium-webfont.woff') format('woff'),
+         url('freighttext-medium-webfont.ttf') format('truetype'),
+         url('freighttext-medium-webfont.svg#freighttextmedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-bold-webfont.eot');
+    src: url('freighttext-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-bold-webfont.woff2') format('woff2'),
+         url('freighttext-bold-webfont.woff') format('woff'),
+         url('freighttext-bold-webfont.ttf') format('truetype'),
+         url('freighttext-bold-webfont.svg#freighttextbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-black-webfont.eot');
+    src: url('freighttext-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-black-webfont.woff2') format('woff2'),
+         url('freighttext-black-webfont.woff') format('woff'),
+         url('freighttext-black-webfont.ttf') format('truetype'),
+         url('freighttext-black-webfont.svg#freighttextblack') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-lightitalic-webfont.eot');
+    src: url('freighttext-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-lightitalic-webfont.woff2') format('woff2'),
+         url('freighttext-lightitalic-webfont.woff') format('woff'),
+         url('freighttext-lightitalic-webfont.ttf') format('truetype'),
+         url('freighttext-lightitalic-webfont.svg#freighttextlight_italic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-bookitalic-webfont.eot');
+    src: url('freighttext-bookitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-bookitalic-webfont.woff2') format('woff2'),
+         url('freighttext-bookitalic-webfont.woff') format('woff'),
+         url('freighttext-bookitalic-webfont.ttf') format('truetype'),
+         url('freighttext-bookitalic-webfont.svg#freighttextitalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-mediumitalic-webfont.eot');
+    src: url('freighttext-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-mediumitalic-webfont.woff2') format('woff2'),
+         url('freighttext-mediumitalic-webfont.woff') format('woff'),
+         url('freighttext-mediumitalic-webfont.ttf') format('truetype'),
+         url('freighttext-mediumitalic-webfont.svg#freighttextmedium_italic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-bolditalic-webfont.eot');
+    src: url('freighttext-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-bolditalic-webfont.woff2') format('woff2'),
+         url('freighttext-bolditalic-webfont.woff') format('woff'),
+         url('freighttext-bolditalic-webfont.ttf') format('truetype'),
+         url('freighttext-bolditalic-webfont.svg#freighttextbold_italic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Freight Text';
+    src: url('freighttext-blackitalic-webfont.eot');
+    src: url('freighttext-blackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('freighttext-blackitalic-webfont.woff2') format('woff2'),
+         url('freighttext-blackitalic-webfont.woff') format('woff'),
+         url('freighttext-blackitalic-webfont.ttf') format('truetype'),
+         url('freighttext-blackitalic-webfont.svg#freighttextblack_italic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+}

@@ -1,0 +1,1592 @@
+@font-face {
+    font-family: 'estadoheadlinemedium';
+    src: url('../fonts/EstadoHeadline/EstadoHeadline-Medium-webfont.eot');
+    src: url('../fonts/EstadoHeadline/EstadoHeadline-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/EstadoHeadline/EstadoHeadline-Medium-webfont.woff2') format('woff2'),
+         url('../fonts/EstadoHeadline/EstadoHeadline-Medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'estadofineroman';
+    src: url('../fonts/EstadoFine/EstadoFine-Roman-webfont.eot');
+    src: url('../fonts/EstadoFine/EstadoFine-Roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/EstadoFine/EstadoFine-Roman-webfont.woff2') format('woff2'),
+         url('../fonts/EstadoFine/EstadoFine-Roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'estadoheadlineroman';
+    src: url('../fonts/EstadoHeadline/EstadoHeadline-Roman-webfont.eot');
+    src: url('../fonts/EstadoHeadline/EstadoHeadline-Roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/EstadoHeadline/EstadoHeadline-Roman-webfont.woff2') format('woff2'),
+         url('../fonts/EstadoHeadline/EstadoHeadline-Roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'flamabold';
+    src: url('../fonts/flama/flama-bold-webfont.eot');
+    src: url('../fonts/flama/flama-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/flama/flama-bold-webfont.woff2') format('woff2'),
+         url('../fonts/flama/flama-bold-webfont.woff') format('woff'),
+         url('../fonts/flama/flama-bold-webfont.eot.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'flamamedium';
+    src: url('../fonts/flama/flama-medium-webfont.eot');
+    src: url('../fonts/flama/flama-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/flama/flama-medium-webfont.woff2') format('woff2'),
+         url('../fonts/flama/flama-medium-webfont.woff') format('woff'),
+         url('../fonts/flama/flama-medium-webfont.eot.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{font-family:'flama';src:url('http://infograficos.estadao.com.br/public/geral/fonts/Flama/flama-book-webfont.eot');src:url('http://infograficos.estadao.com.br/public/geral/fonts/Flama/flama-book-webfont.eot?#iefix') format('embedded-opentype'),url('http://infograficos.estadao.com.br/public/geral/fonts/Flama/flama-book-webfont.woff') format('woff'),url('http://infograficos.estadao.com.br/public/geral/fonts/Flama/flama-book-webfont.ttf') format('truetype'),url('http://infograficos.estadao.com.br/public/geral/fonts/Flama/flama-book-webfont.svg#@font-family') format('svg');font-weight:normal;font-style:normal}
+
+@font-face {
+    font-family: 'freightbook';
+    src: url('../fonts/Freight/FreightText/freighttext-book-webfont.eot');
+    src: url('../fonts/Freight/FreightText/freighttext-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Freight/FreightText/freighttext-book-webfont.woff2') format('woff2'),
+         url('../fonts/Freight/FreightText/freighttext-book-webfont.woff') format('woff'),
+         url('../fonts/Freight/FreightText/freighttext-book-webfont.eot.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'freightbold';
+    src: url('../fonts/Freight/FreightText/freighttext-bold-webfont.eot');
+    src: url('../fonts/Freight/FreightText/freighttext-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Freight/FreightText/freighttext-bold-webfont.woff2') format('woff2'),
+         url('../fonts/Freight/FreightText/freighttext-bold-webfont.woff') format('woff'),
+         url('../fonts/Freight/FreightText/freighttext-bold-webfont.eot.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ul,li,h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; }
+ul,li { list-style-type: none; }
+a {text-decoration: none; font-weight: bold }
+a:hover { opacity: 0.75; }
+body { font-family: 'flama'; margin: 0; padding: 0; text-rendering: optimizeLegibility;}
+html, body {
+overflow-x: hidden;
+}
+
+html {
+	max-height:100%;
+}
+a {
+	text-decoration: none;
+	color: #000;
+	font-size: 16px;
+}
+
+a:hover {
+	opacity: 1;
+}
+
+a:focus {
+	outline:0;
+}
+
+li {
+	text-transform: uppercase;
+	display: inline-block;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-top: 20px;
+	font-family: 'flamamedium';
+	z-index: 1;
+}
+
+ol {
+	text-align: center;
+}
+
+#menu-interno {
+	text-align: center;
+}
+
+.link-interno {
+	display: block;
+	text-transform: uppercase;
+	font-family: 'flamamedium';
+	z-index: 1;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	font-size: 16px;
+}
+
+#menu-hamburguer {
+	position: absolute;
+	right: 20px;
+	top: -20px;
+	z-index: 10;
+}
+
+#menu-hamburguer > img {
+	display: none;
+}
+
+#menu-hamburguer:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+#logo {
+	position: absolute;
+	margin-top: 14px;
+	margin-left: 15px;
+	z-index: 3;
+}
+
+#logo:hover {
+	opacity: 0.9;
+}
+
+#drop {
+	position: fixed;
+	width: 100%;
+	height: 56px;
+	-webkit-box-shadow: 0px 10px 12px 0px rgba(0,0,0,0.10);
+	-moz-box-shadow: 0px 10px 12px 0px rgba(0,0,0,0.10);
+	box-shadow: 0px 10px 12px 0px rgba(0,0,0,0.10);
+	pointer-events: none;
+	top: 0;
+}
+
+#menu {
+	height: 56px;
+	background-color: #fff;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	top: 0;
+}
+
+#capa-img {
+	width: 100%;
+
+}
+
+#capa-img:hover {
+
+}
+
+#foto-container{
+	overflow: hidden;
+	/*max-height: 600px;*/
+	margin-top:56px;
+}
+
+#box-wrap {
+
+}
+
+#bg-img {
+
+}
+
+#box {
+	width: 600px;
+	height: 330px;
+	background-color: #000;
+	position: relative;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    
+	margin-top: 20px;
+}
+
+#title-content {
+	padding-top: 50px;
+	color: #fff;
+	text-align: center;
+	font-size: 48px;
+	font-family: 'estadoheadlineroman';
+}
+
+.linha {
+	width: 48px;
+	height: 3px;
+	background-color: #fff;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+
+#linha-fina {
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'flamamedium';
+	line-height: 1.4em;
+	width: 284px;
+ 	margin: 0 auto;
+}
+
+.video {
+	width: 100%;
+	max-width: 640px;
+	height: 480px;
+	background-color: #eaeaea;
+	margin: 0 auto;
+}
+
+/*OVERLAY*/
+
+#menu-overlay { 
+	position: fixed; 
+	top: 0; 
+	right: 0; 
+	bottom: 0; 
+	left: 0;
+	z-index: 1;
+	display: none;
+	overflow: hidden;
+}
+
+.linhaMenu {
+	width: 48px;
+	height: 1px;
+	background-color: rgba(255,255,255,0.33);
+	margin: 0 auto;
+}
+
+#menu-interno a:hover {
+	opacity: 0.5;
+}
+
+/*SHARE*/
+.fa {
+	font: normal normal normal 22px/1 FontAwesome !important;
+	padding: 0 5px;
+}
+
+.fa:hover {
+	cursor: pointer;
+}
+
+.fa span {
+	position: absolute;
+	top: 26px;
+	margin-top: 0px !important;
+	right: 0 !important;
+}
+
+/*CONTÉUDO*/
+
+.projeto-info {
+	padding: 24px 0;
+}
+
+.content {
+	clear: both;
+	margin: 0 auto;
+	margin-top: 40px;
+	max-width: 528px;
+	width: 100%;
+	/*overflow-y: hidden;*/
+}
+
+h1 {
+	font-family: 'estadoheadlineroman';
+	font-size: 40px;
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+	margin-top: 50px;
+	font-family: 'flamamedium';
+}
+
+.text-box {
+	margin-top: 60px;
+	font-size: 20px;
+	letter-spacing: .01em;
+	font-family: 'freightbook';
+	line-height: 26px;
+}
+
+.text-box:first-letter {
+	font-size: 80px;
+	float: left;
+	line-height: 0.8;
+	margin: 6px 6px 0 0;
+	font-family: 'estadoheadlineroman';
+}
+
+/*AJUSTES PÁGINAS INTERNAS*/
+
+.white {
+	background-color: #fff !important;
+	webkit-box-shadow: 0px 10px 29px 0px rgba(0,0,0,0.10);
+	-moz-box-shadow: 0px 10px 29px 0px rgba(0,0,0,0.10);
+	box-shadow: 0px 10px 29px 0px rgba(0,0,0,0.10);
+}
+
+.black {
+	color: #000 !important;
+}
+
+h3 {
+	text-transform: uppercase;
+}
+
+.titleFix {
+	margin-top: 0px;
+}
+
+h4 {
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 60px;
+	font-size: 12px;
+	font-family: 'flamamedium';
+	opacity: 0.5;
+	margin-bottom: 5px;
+}
+
+.text-box-pg2 {
+	margin-top: 60px;
+	font-size: 20px;
+	letter-spacing: .01em;
+	font-family: 'freightbook';
+	line-height: 26px;
+}
+
+.pergunta {
+	 font-family: 'freightbold';
+}
+
+.resposta {
+	margin-bottom: 30px;
+}
+
+/* VINI */
+
+#external-share {
+    display: none;
+}
+
+.icon-share {
+	font-size: 26px !important;
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 1174px) {
+  #foto-container {
+    /*max-height: 640px;*/
+	}
+}
+
+@media (max-width: 800px) {
+  ol {
+  	display: none;
+  }/*
+	#menu-hamburguer > img {
+		display: block;
+	}
+	#menu-hamburguer > .icon-share {
+		display: none;
+	}
+	*?
+}
+
+
+@media (max-width: 978px) {
+  #foto-container {
+    /*max-height: 400px;	*/
+	}
+}
+
+@media (max-width: 780px) {
+  	#foto-container {
+    /*max-height: 300px;	*/
+	}
+	#box {
+		width: 280px;
+	}
+	.text-box {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.text-box-pg2 {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	h1{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	h3, h4, h5 {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+}
+
+/*VIDEO*/
+
+.video {
+width: 100%;
+max-width: 640px;
+height: 360px;
+background-color: #eaeaea;
+margin: 0 auto;
+position: relative;
+left: 50%;
+-webkit-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+transform: translateX(-50%);
+}
+
+/*BANNERS*/
+
+#OAS_Position1 {
+    margin: 48px 0;
+    max-width: 100%;
+    text-align: center;
+    overflow: hidden;
+    position:relative;
+    left:50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+#OAS_Position1 {
+    width: 100%;
+    max-width: 970px;
+    background: rgba(0,0,0,0.05);
+    max-height:90px;
+}
+
+/*MENU ATIVO*/
+
+.ativo {
+	pointer-events: none;
+	opacity: 0.4;
+}
+
+/*INFOZINHOS8*/
+.infograficos {
+    width: 100%;
+    float: left;
+    margin-left: -160px;
+    padding: 24px 24px 24px 0;
+}
+.infograficos#estadio {
+    max-width: 375px;
+}
+.infograficos#mapa {
+    max-width: 218px;
+}
+.infograficos#placar {
+    max-width: 300px;
+}
+@media (max-width: 970px) {
+  .infograficos{
+    float: none;
+    clear: both;
+    margin: 0 auto;
+    display:block;
+    max-width: 100%;
+  }
+}
+
+/*GALERIA*/
+.galeria {
+	width: 100%;
+	max-width: 636px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.galeria2 {
+	width: 100%;
+	max-width: 848px;
+	margin: 0 auto;
+	margin-top: 20px;
+
+}
+.thumb { 
+	width: 100%;
+	max-width: 202px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+}
+
+#img-1, #img-2, #img-3, #img-4, #img-5, #img-6 {
+	float: left;
+}
+
+#img-1-g2, #img-2-g2, #img-3-g2, #img-4-g2 {
+	float: left;
+}
+
+/*GALERIA RESPONSIVA*/
+@media (max-width: 880px) {
+	#img-3-g2{
+		clear: both;
+	}
+	.galeria {
+		max-width: 441px;
+	}
+	.galeria2 {
+		max-width: 441px;
+	}
+}
+
+@media (max-width: 674px) {
+	#img-3, #img-5 {
+		clear: both;
+	}
+	.galeria {
+		max-width: 441px;
+	}
+}
+
+@media (max-width: 500px) {
+
+	#img-2, #img-4, #img-6, #img-2-g2, #img-4-g2{
+		clear: both;
+	}
+	.thumb {
+			
+	}
+	.galeria, .galeria2 {
+		max-width: 202px;
+	}
+}
+
+/* IMAGENS PAGINA 3*/
+.image {
+	max-width: 640px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.legenda {
+	font-family: 'freightbook';
+	opacity: 0.8;
+	text-align: center;
+}
+
+/*RODAPÉ*/
+
+footer#rodape {
+    background: #000;
+    color: #999;
+    font-family: 'flama';
+    text-align: center;
+    display: inline-block;
+}
+footer#rodape p {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #333;
+}
+.credits {
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 19px;
+    font-weight: 300;
+    font-size: 16px;
+    width: 100%;
+    max-width:528px;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.espacador { padding: 48px 24px; }
+.tg tr:first-child { border-top: none; }
+.tg.credits tr { border-top: 1px solid #333; }
+.tg tr { border-top: 1px solid #ccc; }
+.tg td:first-child { font-family: 'flamamedium'; opacity: 0.5; width: 30%; }
+.tg td {
+    padding: 20px 5px;
+    border-style: none;
+    overflow: hidden;
+    word-break: normal;
+    text-align: left;
+    font-family: 'flamamedium';
+}
+footer#rodape {
+width: 100%;
+margin-top: 50px;
+position: absolute;
+}
+
+.vbox-overlay .vbox-title {
+    top: auto;
+    bottom: 1px;
+    height: auto;
+    background: transparent;
+    color: #f9f9f4;
+    font-family: 'flamamedium';
+    font-size: 14px;
+    line-height: 20px;
+}
+.vbox-num {
+    background: transparent;
+}
+.vbox-close {
+    background-color: transparent;
+}
+
+/*@media (max-width: 1050px) { */
+    #shareBar {
+        height: 72px !important;
+        width: 100% !important;
+        padding: 0 !important;
+        height: 72px;
+    }
+    .shareFix {
+        margin-top: 100px !important;
+        text-align: center;
+    }
+    div#shareBar i {
+        font-size: 30px !important;
+    }
+    div#shareBar .fa {
+        padding: 0 12px;
+    }
+    div#shareBar i:hover {
+        opacity: 0.5;
+    }
+    .fa span {
+        position:relative;
+        font-size: 12px;
+        margin-left: 10px;
+        top: 2px;
+        right: initial;
+    }
+    .fa:before {
+        padding-left: 12px;
+    }
+/* } */
+
+.img-text {
+	max-width: 640px;
+	width: 100%;
+}
+
+
+@media (max-width: 970px) {
+    #OAS_Position1 {
+		text-align: left;
+	}
+}
+
+#setaDireita {
+	position: fixed;
+	width: 30px;
+	height: 100px;
+	background-color: rgba(0, 0, 0, 0.8);
+	right: 0;
+	top: 50%;
+	margin-top: -50px;
+	border-radius: 5px 0px 0px 5px;
+	-webkit-transition: width 0.1s ease-in-out;
+    -moz-transition: width 0.1s ease-in-out;
+    -o-transition: width 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 999;
+}
+
+#setaEsquerda {
+	position: fixed;
+	width: 30px;
+	height: 100px;
+	background-color: rgba(0, 0, 0, 0.8);
+	left: 0;
+	top: 50%;
+	margin-top: -50px;
+	border-radius: 0px 5px 5px 0px;
+	-webkit-transition: width 0.1s ease-in-out;
+    -moz-transition: width 0.1s ease-in-out;
+    -o-transition: width 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 999;
+}
+
+.iconeSeta {
+	opacity: 0.8;
+	color: #fff;
+	margin-top: 38px;
+	margin-left: -10px;
+	position: fixed;
+	right: 0;
+	top: 50%;
+	margin-top: -13px;
+	pointer-events: none;
+	z-index: 999;
+}
+
+.iconeSeta2 {
+	opacity: 0.8;
+	color: #fff;
+	margin-top: 38px;
+	margin-left: -14px;
+	position: fixed;
+	left: 10px;
+	top: 50%;
+	margin-top: -13px;
+	pointer-events: none;
+	z-index: 999;
+}
+
+
+/*ANIMAÇÃO SETA*/
+
+#setaDireita:hover{
+    -webkit-transition: width 0.1s ease-in-out;
+    -moz-transition: width 0.1s ease-in-out;
+    -o-transition: width 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out;
+    width:200px;
+}
+
+#setaEsquerda:hover{
+    -webkit-transition: width 0.1s ease-in-out;
+    -moz-transition: width 0.1s ease-in-out;
+    -o-transition: width 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out;
+    width:200px;
+}
+
+.nomeProximo {
+	position: fixed;
+	right: 0;
+	top: 50%;
+	margin-top: -7px;
+	margin-right: 50px;
+	text-transform: uppercase;
+	font-family: 'flamamedium';
+	font-size: 12px;
+	opacity: 0;
+	-webkit-transition: opacity 0.05s ease-in-out;
+    -moz-transition: opacity 0.05s ease-in-out;
+    -o-transition: opacity 0.05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
+    -webkit-transition-delay: 0s; 
+    -moz-transition-delay: 0s; 
+    -o-transition-delay: 0s; 
+    transition-delay: 0s; 
+    pointer-events: none;
+    color: #fff;
+    z-index: 999;
+}
+
+.nomeAnterior {
+	position: fixed;
+	left: 0;
+	top: 50%;
+	margin-top: -7px;
+	margin-left: 50px;
+	text-transform: uppercase;
+	font-family: 'flamamedium';
+	font-size: 12px;
+	opacity: 0;
+	-webkit-transition: opacity 0.05s ease-in-out;
+    -moz-transition: opacity 0.05s ease-in-out;
+    -o-transition: opacity 0.05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
+    -webkit-transition-delay: 0s; 
+    -moz-transition-delay: 0s; 
+    -o-transition-delay: 0s; 
+    transition-delay: 0s; 
+    pointer-events: none;
+    color: #fff;
+    z-index: 999;
+}
+
+#setaDireita:hover ~ .nomeProximo {
+    opacity: 1;
+    -webkit-transition: opacity 0.1s ease-in-out;
+    -moz-transition: opacity 0.1s ease-in-out;
+    -o-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+    -webkit-transition-delay: 0.15s; 
+    -moz-transition-delay: 0.15s; 
+    -o-transition-delay: 0.15s; 
+    transition-delay: 0.15s; 
+}
+
+#setaEsquerda:hover ~ .nomeAnterior {
+    opacity: 1;
+    -webkit-transition: opacity 0.1s ease-in-out;
+    -moz-transition: opacity 0.1s ease-in-out;
+    -o-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+    -webkit-transition-delay: 0.15s; 
+    -moz-transition-delay: 0.15s; 
+    -o-transition-delay: 0.15s; 
+    transition-delay: 0.15s; 
+}
+
+#setaDireita:hover ~ .iconeSeta {
+    opacity: 1;
+    -webkit-transition: opacity 0.1s ease-in-out;
+    -moz-transition: opacity 0.1s ease-in-out;
+    -o-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+}
+
+#setaEsquerda:hover ~ .iconeSeta2 {
+    opacity: 1;
+    -webkit-transition: opacity 0.1s ease-in-out;
+    -moz-transition: opacity 0.1s ease-in-out;
+    -o-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+}
+
+p {
+	margin-top: 30px;
+	font-size: 20px;
+	letter-spacing: .02em;
+	font-family: 'freightbook';
+	line-height: 26px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.primeiroParagrafo {
+	margin-top: 80px;
+}
+
+.primeiroParagrafo:first-letter {
+	font-size: 80px;
+	float: left;
+	line-height: 0.8;
+	margin: 6px 6px 0 0;
+	font-family: 'estadoheadlineroman';
+}
+
+#fotoGrande {
+	overflow: hidden;
+	max-height: 600px;
+	margin-top: 40px;
+}
+
+.galeriaPersonagens {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.wrapPersonagem {
+}
+
+.clearfix {
+	clear: both;
+}
+
+.fix {
+	clear: both;
+	width: 100%;
+	height: 20px;
+}
+
+.fotoPersonagem {
+	/*width: 49%;*/
+	/*background-color: #222;*/
+	float: left;
+	margin-top: 20px;
+	margin-right: 1%;
+	overflow: hidden;
+	max-height: 800px;
+	margin-bottom: 40px;
+}
+
+.conteudoPersonagem {
+	width: 49%;
+	float: left;
+	margin-top: 20px;
+	margin-left: 1%;
+}
+
+h2 {
+	font-size: 46px;
+	text-align: left ;
+	margin-left: 40px;
+}
+
+h3 {
+	text-align: left;
+	margin-left: 40px;
+	margin-top: 25px;
+	font-family: 'flamamedium';
+}
+
+h3 {
+	text-align: center;
+	margin-top: 25px;
+	font-family: 'flamamedium';
+}
+
+/*h2:after {
+	content: '"';
+}
+
+h2:before {
+	content: '"';
+}*/
+
+.boxQuote {
+	width: 500px;
+	/*background-color: #000;*/
+	position: absolute;
+	margin-top: 50px;
+	margin-left: 50px;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+}
+
+.quoteIcon {
+	/*font-size: 64px !important;*/
+	float: left;
+	pointer-events: none;
+	font-size: 48px;
+	font-family: 'estadofineroman';
+
+}
+
+.endQuote {
+	vertical-align: top;
+	pointer-events: none;
+	padding-top: 10px;
+}
+
+.nome {
+	text-align: left;
+	margin-left: 64px;
+	margin-top: 25px;
+	font-size: 18px;
+	font-family: 'flamamedium';
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.descricao {
+	text-align: left;
+	margin-left: 64px;
+	margin-top: 8px;
+	font-family: 'flamamedium';
+	opacity: 1;
+	letter-spacing: 0.1em;
+}
+
+.center {
+	text-align: center !important;
+	margin-left: 0px !important;
+}
+
+.quotePersonagem {
+	max-width: 970px;
+	width: 85%;
+	margin:  0 auto;
+	margin-top: 40px;
+}
+
+.foto {
+	width: 48%;
+	float: left;
+	overflow: hidden;
+}
+
+.quote {
+	width: 48%;
+	float: left;
+	margin-left: 16px;
+}
+
+.imagemDesloca {
+	float: left;
+	margin: 15px 15px 0px 15px;
+	margin-left: -200px;
+}
+
+.galeria-4 {
+	max-width:  970px;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.bt-foto {
+	width: 224px;
+	margin: 9px;
+	height: 300px;
+	background-color: blue;
+	float: left;
+}
+
+.galeriaPersonagens {
+	overflow: auto;
+}
+
+.quoteDireita {
+	margin-left: -8px;
+	float: none;
+	vertical-align: top;
+	margin-top: 8px;
+}
+
+.fa-quote-left:before {
+content: url(../img/quote-esquerda.png) !important;
+}
+
+.fa-quote-left-2:before {
+content: url(../img/quote-esquerda-preto.png) !important;
+}
+
+.fa-quote-right-2:before {
+content: url(../img/quote-direita-preto.png) !important;
+}
+
+
+/* GALERIA RESPONSIVA */
+
+@media screen and (max-width: 967px) {
+    .galeria-4 {
+        max-width:  484px;
+    }
+}
+
+@media screen and (max-width: 484px) {
+    .galeria-4 {
+        max-width:  242px;
+    }
+}
+
+/* FOTONA RESPONSIVA */
+
+@media screen and (max-width: 1070px) {
+	.boxQuote {
+		margin-top: 25px;
+		margin-left: 0px;
+	}
+}
+
+@media screen and (max-width: 890px) {
+	h2 {
+		font-size: 48px;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.galeriaPersonagens {
+		margin-top: 0px;
+	}
+    .fotoPersonagem {
+    	/* width: 49%; */
+		/* background-color: #222; */
+		/* float: left; */
+		margin: 0 auto;
+		/* margin-top: 20px; */
+		/* margin-right: 1%; */
+		overflow: hidden;
+		max-height: 800px;
+		margin-bottom: 40px;
+    }
+    .boxQuote {
+    	width: 528px;
+		/* background-color: #000; */
+		position: relative;
+		margin: 0 auto;
+		margin-top: 0px;
+		/* margin-left: 0px; */
+		color: #000;
+		text-align: center;
+		padding: 20px;
+    }
+    h2 {
+    	font-size: 48px;
+    }
+    .fa-quote-left:before {
+		content: url(../img/quote-esquerda-preto.png) !important;
+	}
+
+	.fa-quote-right:before {
+		content: url(../img/quote-direita-preto.png) !important;
+	}
+}
+
+.fa:before {
+	padding-left: 0px;
+}
+
+figure a:hover{
+	cursor: pointer;
+}
+
+figure {
+	margin-top: 35px;
+}
+
+
+figcaption {
+	font-family: 'flama';
+	margin-top: 12px;
+	/*font-family: 'freightbook';*/
+	font-size: 16px;
+	opacity: 0.5;
+	text-align: center;
+	cursor: text !important;
+}
+
+.cameraIcone {
+	font-size: 16px !important;
+	opacity: 0.6;
+}
+
+@media all and (min-width: 1025px) {
+	figure a:hover::after {
+		font-family: FontAwesome;
+		content: "\f002";
+		font-size: 40px;
+		text-align: center;
+		position: absolute;
+		width: 528px;
+		margin-top: -200px;
+		color: #fff;
+		pointer-events: none;
+	}
+
+figure a:hover::before {
+		content: '\A';
+		position: absolute;
+		height: 352px;
+		width: 528px;
+		background: rgba(0,0,0,0.4);
+		opacity: 1;
+	}
+}
+
+.infograficos {
+	float:left; 
+	margin-right: -5px; 
+	margin-left: -100px;
+	max-width: 66.6%;
+	padding-top: 0px;
+}
+
+#info-composicao {
+	width: 190px;
+	margin-right: 5px;
+	margin-left: -150px;
+}
+
+@media (max-width: 970px) {
+	.infograficos:not(#info-composicao) {
+		float: none;
+		clear: both;
+		margin: 0 auto;
+		display: block;
+		max-width: 100%;
+	}
+
+	#info-composicao {
+  		margin-left: 0 !important;
+	}
+}
+
+#estaleiroInfo {
+	text-align: center;
+	width: 100%;
+	margin-top: 50px;
+	/*padding: 0px 12px 0px 12px;*/
+}
+
+#estaleiroInfo img {
+	display: inline-block;
+	max-width: 988px;
+	width: calc(100% - 24px);
+}
+
+@media (max-width: 780px) {
+	#box {
+ 		width: 296px;
+ 	} 
+ 	#title-content {
+		font-size: 38px;
+	}
+}
+
+@media (max-width: 700px) {
+	#setaDireita, .iconeSeta2, .nomeProximo, #setaEsquerda, .iconeSeta, .nomeAnterior {
+ 		display: none !important;
+ 	} 
+}
+
+@media all and (max-width: 528px) {
+	#info-composicao {
+  		float: none;
+		clear: both;
+		margin: 0 auto !important;
+		display: block;
+		max-width: 100%;
+	}
+}
+
+h2 {
+	font-family: 'estadoheadlineroman';
+	font-size: 38px;
+	line-height: 1.2;
+	border-top: 2px solid rgba(0,0,0,0.25);
+	border-bottom: 2px solid rgba(0,0,0,0.25);
+	padding: 24px 0;
+	padding-left: 24px;
+	text-indent: -14px;
+}
+
+#quoteCapa {
+	position: absolute;
+	top: 210px;
+	left: 5%;
+}
+
+.borderFix {
+	border-top: 2px solid rgba(255,255,255,0.25);
+	border-bottom: 2px solid rgba(255,255,255,.25);
+}
+
+b {
+	font-family: 'freightbold';
+}
+
+/*VIDEO*/
+
+.responsive-container {
+    position: relative;
+    width: 100%;
+    /*border: 1px solid black;*/
+}
+
+.dummy {
+    padding-top: 100%; /* forces 1:1 aspect ratio */
+}
+
+.img-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align:center; /* Align center inline elements */
+    font: 0/0 a;
+    /*pointer-events: none;*/
+}
+
+.img-container:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.img-container div {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.iconePlay {
+	font-size: 48px !important;
+}
+
+.content-1024px {
+	clear: both;
+	margin: 0 auto;
+	margin-top: 40px;
+	max-width: 1024px;
+	width: 100%;
+	/*overflow-y: hidden;*/
+}
+
+.content-full {
+	clear: both;
+	margin: 56px auto 0;
+	width: 100%;
+	/*overflow-y: hidden;*/
+}
+
+/*PROXIMO CAPÍTULO*/
+
+.bt-container {
+	text-align: center;
+	margin: 40px 0px 20px 0px;
+}
+
+.proximo-bt {
+	font-family: 'flamamedium';
+	text-transform: uppercase;
+	font-size: 18px;
+	text-align: center;
+	padding: 20px 0px 20px 0px;
+	border-top: 1px solid #222;
+	border-bottom: 1px solid #222;
+	display: inline-block;
+}
+
+#owl-demo {
+	margin-top: 40px;
+}
+
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+.playerContainer {
+	width: 200px;
+	padding: 16px;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.chamadaVideo{
+	font-family: 'flamamedium';
+	text-transform: uppercase;
+	font-size: 16px;
+	margin-top: 10px !important;
+	color: #fff;
+}
+
+.iconePlay {
+	color: #fff;
+}
+
+.playerContainer:hover {
+	background-color: rgba(255, 255, 255, 0.8) !important;
+	cursor: pointer !important;
+}
+
+.playerContainer:hover .chamadaVideo {
+	color: #000;
+}
+
+.playerContainer:hover .iconePlay {
+	color: #000;
+}
+
+.img-container:hover {
+	cursor: pointer;
+} 
+
+/*.responsive-container:hover .playerContainer {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.playerContainer:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.responsive-container:hover .chamadaVideo {
+	color: #fff;
+}
+
+.responsive-container:hover .iconePlay {
+	color: #fff;
+}*/
+
+/* DEPOIMENTOS RESPONSIVO */
+
+@media all and (max-width: 900px) {
+
+	.quotePersonagem {
+		max-width: 528px;
+		width: 100%;
+	}
+	.foto {
+		width: 100%; 
+		float: none; 
+	}
+	.quote {
+		margin-top: 30px;
+		width: 100%; 
+		float: none; 
+		margin-left: 0px; 
+	}
+	h2 {
+		margin-left: 12px;
+		margin-right: 12px;
+		font-size: 28px;
+	}
+	.nome {
+		margin-left: 36px;
+	}
+	.descricao {
+		margin-left: 36px;
+	}
+}
+
+.responsiveFix {
+		display: none;
+	}
+
+@media all and (max-width: 1000px) {
+
+	#quoteCapa {
+		display: none;
+	}
+
+	.responsiveFix {
+		display: block;
+		max-width: 528px;
+		width: 100%;
+	}
+
+	.responsiveQuote {
+		width: 100%;
+		float: none;
+		margin-left: 0px;
+	}
+	.responsiveh2 {
+		margin-left: 12px;
+		margin-right: 12px;
+	}
+	.responsiveNome {
+		margin-left: 36px;
+	}
+	.responsiveDesc {
+	margin-left: 36px;
+	}
+	.hideFix {
+		display: none;
+	}
+	.bt-play {
+		background-color: rgba(0, 0, 0, 0.8) !important;
+		margin-left: 35px !important;
+		border: 1px solid transparent;
+	}
+	.bt-play:hover {
+		background-color: rgba(255, 255, 255, 0.8) !important;
+		border: 1px solid #eaeaea;
+	}
+
+	.bt-play:hover .playDepoimentos{
+		color: #000 !important;
+	}
+	.bt-play:hover .bt-play-chamada{
+		color: #000 !important;
+	}
+	.playDepoimentos  {
+		color: #fff !important;
+	}
+	.bt-play-chamada {
+		color: #fff !important;
+	}
+	.alturaFix {
+		margin-top: 0;
+	}
+	.alturaFix10px {
+		margin-top: 10px;
+	}
+	.title-box { 
+		margin-top: 0 !important;
+	}
+}
+
+.bt-play {
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 300px;
+	border-radius: 8px;
+	height: 60px;
+	margin-left: 62px;
+	margin-top: 25px;
+}
+
+.bt-play:hover {
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bt-play:hover .playDepoimentos {
+	color: #fff;
+}
+
+.bt-play:hover .bt-play-chamada {
+	color: #fff;
+}
+
+.playDepoimentos {
+	margin-left: 19px;
+	font-size: 38px !important;
+	margin-top: 11px;
+	float: left;
+	color: #000;
+}
+
+.bt-play-chamada {
+	float: left;
+	margin-top: 17px;
+	margin-left: 5px;
+	font-family: 'flamamedium';
+	text-transform: uppercase;
+	font-size: 16px;
+	color: #000;
+}
+
+.proximo-bt:hover {
+	opacity: 0.6;
+}
+
+ol a:hover {
+	opacity: 0.6;
+}
+
+@media all and (max-width: 600px) {
+	.bt-play {
+		width: 240px;
+		border-radius: 5px;
+	}
+	.bt-play-chamada {
+		margin-top: 11px;
+		margin-left: 5px;
+		font-family: 'flamamedium';
+		text-transform: uppercase;
+		font-size: 16px;
+		line-height: 19px;
+		color: #000;
+	}	
+	.bt-play-chamada span {
+		display: block !important;
+	}
+
+}
+
+
+

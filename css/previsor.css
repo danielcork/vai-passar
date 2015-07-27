@@ -1,0 +1,478 @@
+/* CAPA INTRO */
+
+html, body {
+  overflow: hidden;
+  text-align: center;
+}
+
+#capa #menu-hamburguer, #capa #logo-menu {
+    opacity:0;
+}
+
+#capa #logo-menu {
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width:106px;
+}
+
+#capa {
+	display: block;
+	color: #fff;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index:10;
+    background: url(../img/congresso.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+#capa #logo-menu, #capa #logo-capa,  {
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+#capa img {
+	max-width:106px;
+	margin: 0 auto;
+	display: inline-block;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+#capa .wrap {
+    position:absolute;
+    max-width: 480px;
+    width:calc(100% - 48px);
+    padding: 24px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#capa .loader {
+    margin: 24px 0;
+    height:0;
+    width:100%;
+    display:block;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+#capa .loader::before {
+    content: '';
+    height:0;
+    width:100%;
+    display:block;
+    border-top: 1px solid rgba(255,255,255,0.33);
+}
+
+#capa .loader::after {
+    content: '';
+    margin-top: -2px;
+    height:0;
+    width:100%;
+    display:block;
+    border-top: 3px solid rgba(255,255,255,1);
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+h1 {
+    font-size: 22px;
+    color: #fff;
+    font-family: 'flama';
+    font-weight: bold;
+    text-transform: uppercase;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.loading #capa .loader::after {
+    width:0%;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+/* CAPA MENU */
+
+#capa.menu {
+    height: 56px;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    -webkit-transition-delay: 0.5s; /* Safari */
+    transition-delay: 0.5s;
+}
+
+#capa.menu #menu-hamburguer, #capa.menu #logo-menu  {
+    opacity:1;
+    top: 16px;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    -webkit-transition-delay: 1.5s; /* Safari */
+    transition-delay: 1.5s;
+}
+
+#capa.menu #logo-menu {
+    opacity:1;
+    top: 8px;
+    z-index: 11;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    -webkit-transition-delay: 1.5s; /* Safari */
+    transition-delay: 1.5s;
+}
+
+#capa.menu #logo-menu img, #capa.menu #menu-hamburguer i {
+    opacity: 1;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+#capa.menu #logo-menu img:hover, #capa.menu #menu-hamburguer i:hover {
+    opacity: 0.5;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+#capa.menu .loader, #capa.menu h1, #capa.menu #logo-capa {
+    opacity:0;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+/* MENU CONTENT */
+
+#capa.menu.menu-content {
+    height: 100%;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+#menu-overlay a { 
+    color: #fff;
+}
+
+
+/* CONTEUDO */
+
+#content {
+    position: relative;
+    /*top: 56px;*/
+    text-align: center;
+    padding: 80px 12px 24px;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    display: inline-block;
+    /*left: 50%;*/
+   /* -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+            */
+}
+
+#content h1 {
+    color: #5d5d5d;
+    padding-bottom: 12px;
+}
+/*
+.select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    min-width: 296px;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+
+    background: #fff url(../img/arrowdown.png) no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    font-size: 18px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+*/
+
+select {
+   -webkit-appearance: button;
+   /*-webkit-box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.3);*/
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   /*background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);*/
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: none;
+   color: #555;
+   font-size: inherit;
+   /*margin: 12px 24px; */
+   margin: 12px 24px 0px 24px;
+   display:inline-block;
+   overflow: hidden;
+   padding: 10px 20px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: calc(100% - 48px);
+   border: 1px solid #ccc;
+   font-family: 'flama';
+}
+
+
+select {
+   color: #222;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png);
+   background-color: #fff;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+}
+
+select:focus {
+    outline: none;
+}
+
+#chart {
+    width: 100%;
+    background-color: #f5f5f5;
+    background-image: url("http://infograficos.estadao.com.br/public/paladar/receitas-de-ragu/css/../img/shadow-tra.png");
+    background-repeat: repeat-x;
+    padding: 68px 0;
+    text-align: center;
+}
+
+.projeto-info p {
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  padding-left: 18px;
+  padding-right: 18px;
+  text-align: left;
+  color: #5d5d5d;
+  margin-top: 12px;
+}
+
+h5 {
+    color: #5d5d5d;
+    font-family: 'flama';
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+#como-vota h5 {
+    padding-bottom:12px;
+}
+
+#amount {
+  font-family: 'flama';
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 12px; 
+  font-size: 14px;
+}
+
+/* JQUERY SLIDER */
+/*
+#slider * {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+*/
+
+.ui-widget-content {
+  border: 2px solid #ececec;
+  background: red;
+  color: #222222;
+  width: calc(100% - 96px);
+  max-width: 480px;
+  margin: 12px auto 0;
+  height: 0px;
+}
+
+.ui-widget-content .ui-state-default {
+  border: 4px solid #868686;
+  background: #fff;
+  font-weight: normal;
+  color: #555555;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -7px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+/*
+.ui-widget-content .ui-state-default:not(.blankmark):after {
+  content:'';
+  display:block;
+  background: green;
+  font-weight: normal;
+  color: #555555;
+  margin-top: 2px;
+  margin-left: 2px;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+}
+*/
+
+.ui-widget-content .ui-state-default.blankmark {
+  border: 4px solid #ececec;
+  background: #fff;
+  font-weight: normal;
+  color: #555555;
+  border-radius: 50%;
+  margin-top: -7px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+#amount.val1 {
+    text-align: left;
+    color: #b90066;
+}
+
+#amount.val2 {
+    text-align: center;
+    color: #868686;
+}
+
+#amount.val3 {
+    text-align: right;
+    color: #00884e;
+}
+
+.ui-widget-content .ui-state-default.val1 {
+    border-color: #b90066;
+}
+
+.ui-widget-content .ui-state-default.val2 {
+    border-color: #868686;
+}
+
+.ui-widget-content .ui-state-default.val3 {
+    border-color: #00884e;
+}
+
+
+
+/* TOOLTIP */
+
+a.tooltips {
+  position: relative;
+  display: inline;
+  top: 265px;
+  font-family: 'flama';
+  letter-spacing: -0.1em;
+  color: #868686;
+}
+a.tooltips span {
+  position: absolute;
+  width:140px;
+  color: #FFFFFF;
+  background: #00884E;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+  letter-spacing: 0em;
+}
+a.tooltips span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #00884E;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+a.tooltips span {
+  font-weight: bold;
+  font-size: 14px;
+  opacity: 1;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -70px;
+}
+
+
+/* CHARTS */
+
+.chances {
+  width: 110px;
+  text-transform: uppercase;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 auto;
+  top: 95px;
+  position: relative;
+}
+
+.porcentagem {
+  position: absolute;
+  right: 0;
+  left: 32%;
+  margin-top: 135px;
+  font-family: 'flama';
+  font-weight: bold;
+  color: #666;
+}
+
+.knob-wrap {
+  width: 260px;
+  height:260px;
+  margin: -30px auto 0;
+  padding-bottom: 96px;
+}
+
+.knob {
+  font-family: 'flama' !important;
+  font-weight: bold;
+}
+
+#chart {
+  padding: 24px;
+  width: calc(100% - 48px);
+}
+
+#chart img {
+  width: 100%;
+  max-width: 550px;
+}

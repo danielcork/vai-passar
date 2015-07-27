@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'Estado Headline';
+    src: url('EstadoHeadline-Roman-webfont.eot');
+    src: url('EstadoHeadline-Roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('EstadoHeadline-Roman-webfont.woff2') format('woff2'),
+         url('EstadoHeadline-Roman-webfont.woff') format('woff'),
+         url('EstadoHeadline-Roman-webfont.ttf') format('truetype'),
+         url('EstadoHeadline-Roman-webfont.svg#estado_headlineroman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Estado Headline';
+    src: url('EstadoHeadline-Italic-webfont.eot');
+    src: url('EstadoHeadline-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('EstadoHeadline-Italic-webfont.woff2') format('woff2'),
+         url('EstadoHeadline-Italic-webfont.woff') format('woff'),
+         url('EstadoHeadline-Italic-webfont.ttf') format('truetype'),
+         url('EstadoHeadline-Italic-webfont.svg#estado_headlineitalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Estado Headline';
+    src: url('EstadoHeadline-Medium-webfont.eot');
+    src: url('EstadoHeadline-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('EstadoHeadline-Medium-webfont.woff2') format('woff2'),
+         url('EstadoHeadline-Medium-webfont.woff') format('woff'),
+         url('EstadoHeadline-Medium-webfont.ttf') format('truetype'),
+         url('EstadoHeadline-Medium-webfont.svg#estado_headlinemedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Estado Headline';
+    src: url('EstadoHeadline-Semibold-webfont.eot');
+    src: url('EstadoHeadline-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('EstadoHeadline-Semibold-webfont.woff2') format('woff2'),
+         url('EstadoHeadline-Semibold-webfont.woff') format('woff'),
+         url('EstadoHeadline-Semibold-webfont.ttf') format('truetype'),
+         url('EstadoHeadline-Semibold-webfont.svg#estado_headlinesemibold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Estado Headline';
+    src: url('EstadoHeadline-Bold-webfont.eot');
+    src: url('EstadoHeadline-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('EstadoHeadline-Bold-webfont.woff2') format('woff2'),
+         url('EstadoHeadline-Bold-webfont.woff') format('woff'),
+         url('EstadoHeadline-Bold-webfont.ttf') format('truetype'),
+         url('EstadoHeadline-Bold-webfont.svg#estado_headlinebold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
