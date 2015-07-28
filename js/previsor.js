@@ -1,5 +1,9 @@
 var dados_previsor;
 var array_teste;
+var dict_voto { 'a': 0,
+'b':1,
+'c':2
+};
 
 
 
