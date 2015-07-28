@@ -1,20 +1,93 @@
-<?php 
-  /* Grupo de variáveis obrigatórias */
-  $OAS_SITEPAGE = "estadao2014/infograficos/especiais/previsor-parlamentar";
-  $OAS_LISTPOS = "Position1,x17,x01";
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<?php include "includes/seo.php"; ?>
-		<?php include "includes/styles.php"; ?>
-		<?php include "head_header.php"; ?> <!-- QUANDO SUBIR NO SERVIDOR, ADICIONAR: /var/www/html/infograficos/public/geral/include/X.php -->
+        <!-- SEO -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="Resource-type" content="Document" />
+        <meta name="google" value="notranslate" />
+        <meta name="google" content="notranslate" />
+        <meta http-equiv="cleartype" content="on">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="shortcut icon" href="http://infograficos.estadao.com.br/geral/img/favicon.ico" />
+        <title>Previsor Parlamentar - Estadão</title>
+        <meta name="author" content="Estadão"/>
+        <meta name="description" content="Linha fina">
+        <meta name="keywords" content="Previsor, Parlamentar, Congresso, Projetos de Lei">
+        <meta property="fb:app_id" content="268068763366373" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://infograficos.estadao.com.br/editoria/previsor-parlamentar/">
+        <meta property="og:title" content="Previsor Parlamentar - Estadão" />
+        <meta property="og:description" content="Linha fina" />
+        <meta property="og:image" content="http://infograficos.estadao.com.br/editoria/previsor-parlamentar/img/og-thumb.jpg" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/share.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome-animation.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="css/previsor.css" />
+        <link rel="stylesheet" href="css/seletor.css">
+
+        <!-- HEAD HEADER -->
+        <!-- Primeira tag Adobe DTM-->
+        <script src="http://assets.adobedtm.com/e5f559647a6b70155eb62d5caa3f47b2d27f316b/satelliteLib-9cd2d0273112f25f68a35c147f076bbfd1df9e90.js"></script>
+
+        <!--Navegg -->
+        <script id="navegg" type="text/javascript" src="//tag.navdmp.com/tm23902.js"></script>
+
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-166963-4', 'auto');
+            ga('send', 'pageview');
+        </script>
 	</head>
 	<body class="loading">
-		<?php include "body_header.php"; ?> <!-- QUANDO SUBIR NO SERVIDOR, ADICIONAR: /var/www/html/infograficos/public/geral/include/X.php -->
+    <!-- BODY HEADER -->
+    <!-- Primeira tag comScore -->
+    <!-- The UDM comScore Tag consists of two code snippets. Please include both code snippets in your web pages. part 1/2-->
+    <script type="text/javascript">
+        // <![CDATA[
+        function udm_(e){var t="comScore=",n=document,r=n.cookie,i="",s="indexOf",o="substring",u="length",a=2048,f,l="&ns_",c="&",h,p,d,v,m=window,g=m.encodeURIComponent||escape;if(r[s](t)+1)for(d=0,p=r.split(";"),v=p[u];d<v;d++)h=p[d][s](t),h+1&&(i=c+unescape(p[d][o](h+t[u])));e+=l+"_t="+ +(new Date)+l+"c="+(n.characterSet||n.defaultCharset||"")+"&c8="+g(n.title)+i+"&c7="+g(n.URL)+"&c9="+g(n.referrer),e[u]>a&&e[s](c)>0&&(f=e[o](0,a-8).lastIndexOf(c),e=(e[o](0,f)+l+"cut="+g(e[o](f+1)))[o](0,a)),n.images?(h=new Image,m.ns_p||(ns_p=h),h.src=e):n.write("<","p","><",'img src="',e,'" height="1" width="1" alt="*"',"><","/p",">")};
+        udm_('http'+(document.location.href.charAt(4)=='s'?'s://sb':'://b')+'.scorecardresearch.com/b?c1=2&c2=7672308');
+        // ]]>
+    </script>
+    <noscript><p><img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=7672308" height="1" width="1" alt="*"></p></noscript>
+
 
     <section id="capa">
-      <?php include "includes/nav.php"; ?>
+        <!-- NAV -->
+        <a href="http://www.estadao.com.br/" id="logo-menu" target="_blank"><img src="img/logo-estadao-dados.svg"></a>
+        <div class="wrap">
+            <a href="http://www.estadao.com.br/" id="logo-capa" target="_blank"><img src="img/logo-estadao-dados.svg"></a>
+            <span class="loader"></span>
+            <h1>Previsor<br>Parlamentar</h1>
+        </div>
+        <div id="menu-hamburguer"><i class="fa fa-bars icon-share"></i></div>
+
+        <!-- MENU -->
+        <div id="menu-overlay">
+            <div id="shareBar" class="shareFix">
+                <i class="fa fa-facebook btFbShare"></i>
+                <i class="fa fa-twitter btTwitterShare"></i>
+                <i class="fa fa-google-plus btGPlusShare"></i>
+            </div>
+            <div class="linhaMenu"></div>
+            <div id="menu-interno">
+                <a href="./" class="link-interno">Início</a>
+                <a href="./o-que-e.html" class="link-interno">O que é</a>
+                <a href="./como-funciona.html" class="link-interno">Como funciona</a>
+                <a href="./creditos.html"  class="link-interno">Créditos</a>
+            </div>
+        </div>
     </section>
     
     <section id="content">
@@ -99,8 +172,22 @@
       <img src="img/grafico-fake.png">
     </section>
 
-  <?php include "includes/scripts.php"; ?>
-  <script>
+    <!-- SCRIPTS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
+    <script>
+        $(document).ready(function(){
+            $(this).scrollTop(0);
+        });
+    </script>
+    <!--<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+    <script type="text/javascript" src="http://infograficos.estadao.com.br/geral/libs/jquery.sharrre.min.js"></script>
+    <!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
+    <script src="js/jquery.knob.js"></script>
+    <script type="text/javascript" src="js/main.js?v=1.1"></script>
+    <script type="text/javascript" src="js/script.js?v=1.1"></script>
+    <script src="js/index.js"></script>
+
+    <script>
       $('#opcoes dl').click(function() {
         var porcentagemFake = Math.floor(Math.random()*100);
         $('.knob')
@@ -211,6 +298,12 @@
                                     });
             });
         </script>
-  <?php include "body_footer.php"; ?> <!-- QUANDO SUBIR NO SERVIDOR, ADICIONAR: /var/www/html/infograficos/public/geral/include/X.php -->
-</body>
+    <!--  Segunda tag comScore -->
+    <!-- - The UDM comScore Tag consists of two code snippets. Please include both code snippets in your web pages. part 2/2-->
+    <script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/7672308/ct.js"></script>
+
+    <!-- Segunda tag Adobe DTM -->
+    <script type="text/javascript">_satellite.pageBottom();</script>
+
+    </body>
 </html>
