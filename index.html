@@ -196,7 +196,7 @@
     <script src="js/previsor.js"></script>
     <script>
       $('#opcoes dl').click(function() {
-        var porcentagemFake = Math.floor(Math.random()*100);
+        var porcentagemFake = le_dados();
         $('.knob')
             .val(porcentagemFake)
             .trigger('change');
