@@ -130,34 +130,34 @@
         <section id="opcoes">
           <dl>
             <dt id="pt">PT</dt>
-            <dd class="pt b"></dd>
+            <dd class="b"></dd>
             
             <dt id="psdb">PSDB</dt>
-            <dd class="psdb b"></dd>
+            <dd class="b"></dd>
             
-            <dt id="governo">Governo</dt>
-            <dd class="gov b"></dd>
+            <dt id="gov">Governo</dt>
+            <dd class="b"></dd>
             
             <dt id="pmdb">PMDB</dt>
-            <dd class="pmdb b"></dd>
+            <dd class="b"></dd>
             
             <dt id="psd">PSD</dt>
-            <dd class="psd b"></dd>
+            <dd class="b"></dd>
             
             <dt id="pp">PP</dt>
-            <dd class="pp b"></dd>
+            <dd class="b"></dd>
             
             <dt id="prb">PRB</dt>
-            <dd class="prb b"></dd>
+            <dd class="b"></dd>
             
             <dt id="psb">PSB</dt>
-            <dd class="psb b"></dd>
+            <dd class="b"></dd>
 
 	    <dt id="minoria">Minoria</dt>
-            <dd class="minoria b"></dd>
+            <dd class="b"></dd>
 
             <dt id="dem">DEM</dt>
-            <dd class="dem b"></dd>
+            <dd class="b"></dd>
           </dl>
         </section>
       </div>
@@ -196,11 +196,11 @@
     <script src="js/previsor.js"></script>
     <script>
       $('#opcoes dl').click(function() {
-        var porcentagemFake = le_dados();
+        var porcentagemFake = acerta_chances()*100;
         $('.knob')
             .val(porcentagemFake)
             .trigger('change');
-      });
+      });	
     </script>
 
      <script>
