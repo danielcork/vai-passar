@@ -77,5 +77,3 @@ function acerta_chances() {
 	return resultado;
 }
 
-
-

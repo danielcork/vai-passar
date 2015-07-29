@@ -201,6 +201,7 @@
             .val(porcentagemFake)
             .trigger('change');
       });	
+
     </script>
 
      <script>
@@ -304,6 +305,14 @@
                                                 }
                                     });
             });
+
+      $(document).scroll(function(){ // Verificar depois
+    	var porcentagemFake = acerta_chances()*100;
+        $('.knob')
+            .val(porcentagemFake)
+            .trigger('change');	
+      });
+
         </script>
     <!--  Segunda tag comScore -->
     <!-- - The UDM comScore Tag consists of two code snippets. Please include both code snippets in your web pages. part 2/2-->
@@ -311,6 +320,8 @@
 
     <!-- Segunda tag Adobe DTM -->
     <script type="text/javascript">_satellite.pageBottom();</script>
+	<script>
+	</script>
 
     </body>
 </html>
