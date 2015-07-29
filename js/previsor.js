@@ -1,8 +1,8 @@
 var dados_previsor;
 var array_teste;
-var dict_voto = { 'a': '0',
+var dict_voto = { 'a': '2',
 'b':'1',
-'c':'2'
+'c':'0'
 };
 
 
