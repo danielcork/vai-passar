@@ -217,10 +217,15 @@
                         //console.log(this.$.attr('value'));
                         console.log("release : " + value);
 
-                        if (value > 50) { 
+                        if (value > 70) { 
                           cor = '#00884e';
                           $('.tooltips span').css('visibility', 'visible');
-                        } else {
+                        } 
+			else if ( value < 30 ) {
+			  cor = '#e80000';
+                          $('.tooltips span').css('visibility', 'hidden');
+			}
+			else {
                           cor = '#666666';
                           $('.tooltips span').css('visibility', 'hidden');
                         }
