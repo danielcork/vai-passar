@@ -467,12 +467,47 @@ a.tooltips span {
   font-weight: bold;
 }
 
-#chart {
-  padding: 24px;
-  width: calc(100% - 48px);
+.axis path {
+    display: none;
 }
 
-#chart img {
-  width: 100%;
-  max-width: 550px;
+.line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6px;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+    font: 14px Arial;
+    background: white;
+    border-radius: 8px;
+    pointer-events: none;
+    border:2px solid;
+    color:black;
+    line-height: 0.7;
+
+}
+div.tooltip p {
+    font-family: Flama-Book;
+}
+
+div.tooltip b {
+    font-family: Flama-Bold;
+}
+
+
+div#topo {
+    color: white;
+    font-size: 30px;
+    padding: 5px;
+
+}
+div#resto {
+    padding: 5px;
+    line-height: 1.5;
 }

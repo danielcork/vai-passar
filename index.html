@@ -181,7 +181,11 @@
     </section>
 
     <section id="chart">
-      <img src="img/grafico-fake.png">
+        <div id="grafico_pe"></div>
+        <div class="tooltip" style="opacity:0">
+            <div id="topo"></div>
+            <div id="resto"></div>
+        </div>
     </section>
 
     <!-- SCRIPTS -->
@@ -200,8 +204,10 @@
     <script type="text/javascript" src="js/main.js?v=1.1"></script>
     <script type="text/javascript" src="js/script.js?v=1.1"></script>
     <script src="js/index.js"></script>
-	<script src="js/d3.v3.min.js"></script>
+
+    <script src="js/d3.v3.min.js"></script>
     <script src="js/previsor.js"></script>
+    <script src="js/grafico_pe.js"></script>
     <script>
 
       $('#opcoes dl').click(function() {
@@ -325,13 +331,7 @@
                                     });
             });
 
-      $(document).scroll(function(){ // Verificar depois
-    	var porcentagemFake = acerta_chances()*100;
-        $('.knob')
-            .val(porcentagemFake)
-            .trigger('change');	
-      });
-	
+
   $(function() {
     $( "#progressbar" ).progressbar({
       value: false
@@ -352,6 +352,7 @@
     <script type="text/javascript">_satellite.pageBottom();</script>
 	<script>
 	</script>
+
 
     </body>
 </html>

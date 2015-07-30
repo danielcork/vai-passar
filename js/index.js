@@ -1,3 +1,4 @@
+
 var markup = '<span></span><span></span><span></span><a></a><p></p>';
 var txt    = ['Contra', 'Neutro', 'A favor']
 var cur, el, aim, x1, x2, y1, y2, pressed;

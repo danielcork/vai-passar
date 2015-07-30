@@ -22,7 +22,6 @@ function abre_dados() { // Carrega dados do previsor
 	psd: "2",
 	psdb: "2",
 	dem: "2"};
-    
 }
 
 
