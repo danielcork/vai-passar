@@ -170,6 +170,12 @@
               </a>
               <input class="knob" data-width="260" data-height="260" value="0" data-fgColor="#666666" data-thickness=".05" data-angleOffset="180" data-readOnly="true">
           </div>
+
+			     <p class="chances">Chances de Aprovar</p>
+	  <div id="progressbar"> 
+	
+          </div>
+
       <div style="clear:both"></div>
 
     </section>
@@ -189,19 +195,22 @@
     <script type="text/javascript" src="http://infograficos.estadao.com.br/geral/libs/jquery.sharrre.min.js"></script>
     <!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
     <script src="js/jquery.knob.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="js/main.js?v=1.1"></script>
     <script type="text/javascript" src="js/script.js?v=1.1"></script>
     <script src="js/index.js"></script>
 	<script src="js/d3.v3.min.js"></script>
     <script src="js/previsor.js"></script>
     <script>
+
       $('#opcoes dl').click(function() {
         var porcentagemFake = acerta_chances()*100;
         $('.knob')
             .val(porcentagemFake)
             .trigger('change');
       });	
-
+  
     </script>
 
      <script>
@@ -319,8 +328,19 @@
             .val(porcentagemFake)
             .trigger('change');	
       });
+	
+  $(function() {
+    $( "#progressbar" ).progressbar({
+      value: false
+    });
+  });
 
         </script>
+<style>
+  #progressbar .ui-progressbar-value {
+    background-color: #ccc;
+  }
+  </style>
     <!--  Segunda tag comScore -->
     <!-- - The UDM comScore Tag consists of two code snippets. Please include both code snippets in your web pages. part 2/2-->
     <script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/7672308/ct.js"></script>
