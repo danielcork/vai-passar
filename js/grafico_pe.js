@@ -14,13 +14,14 @@ var partidos = {
 }
 
 var dados;
+
 var margin = {
         top: 20,
         right: 20,
         bottom: 30,
         left: 50
     },
-    width = 960 - margin.left - margin.right,
+    width = $("#content").width() - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var parseDate = d3.time.format("%Y-%m-%d").parse;
@@ -77,12 +78,19 @@ d3.json("dados/hist_dilma_camara_2.json", function(error, data) {
     }));
     y.domain([0,100]);
 
+    //coloca um retangulo branco
+    svg.append("rect")
+        .attr("width",width+20)
+        .attr("height",height)
+        .style("fill","white");
+
     //coloca eixos
     svg.append("g")
         .transition()
         .duration(500)
         .attr("class", "x axis")
         .attr("transform", "translate(0," +( height +8 )+ ")")
+        .style("background-color","white")
         .call(xAxis);
 
     svg.append("g").transition()
@@ -98,7 +106,7 @@ d3.json("dados/hist_dilma_camara_2.json", function(error, data) {
         .style("text-anchor", "end")
         .text("Taxa de governismo (%)");
 
-    cria_seletores_tooltip()
+        cria_seletores_tooltip()
     for (partido in partidos) {
         desenha_linha(partido)
     }
@@ -108,6 +116,64 @@ function cria_seletores_tooltip() {
     tooltip = d3.select(".tooltip");
     topo = d3.select("#topo");
     resto = d3.select("#resto")
+}
+
+
+function desenha_linha(variavel) {
+    var data = dados[variavel];
+
+    svg.append("path")
+        .datum(data)
+        .attr("class", "line " + variavel)
+        .attr("d", line)
+        .style("stroke","lightgray")
+        .style("opacity",0.5)
+        .on("click", function () {
+            poe_destaque(variavel);
+            var d = acha_circulo_mais_proximo(variavel);
+            mostra_tooltip(d,variavel);
+        })
+        .on("mouseover", function () {
+            poe_destaque(variavel);
+            var d = acha_circulo_mais_proximo(variavel);
+            mostra_tooltip(d,variavel);
+        })
+        .on("mouseout",function (d) {
+            tira_destaque(variavel);
+            esconde_tooltip();
+        })
+        .on("mousemove",move_tooltip);
+
+    svg.append("g")
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", function (d) {
+            return x(d.date);
+        })
+        .attr("cy", function (d) {
+            return y(d.valor);
+        })
+        .attr("class", "circle " + variavel)
+        .attr("r", 5)
+        .style("opacity",0.1)
+        .style("fill","light-gray")
+
+        .on("mouseover",function (d) {
+            poe_destaque(variavel);
+            mostra_tooltip(d,variavel);
+        })
+        .on("click", function (d) {
+            poe_destaque(variavel);
+            mostra_tooltip(d,variavel);
+        })
+        .on("mouseout",function (d) {
+            tira_destaque(variavel);
+            esconde_tooltip();
+        })
+        .on("mousemove",move_tooltip);
+
 }
 
 function poe_destaque(variavel) {
@@ -173,52 +239,4 @@ function acha_circulo_mais_proximo(variavel) {
         }
     })
     return objeto
-}
-
-function desenha_linha(variavel) {
-    var data = dados[variavel];
-
-    svg.append("path")
-        .datum(data)
-        .attr("class", "line " + variavel)
-        .attr("d", line)
-        .style("stroke","lightgray")
-        .style("opacity",0.5)
-        .on("mouseover", function () {
-            poe_destaque(variavel);
-            var d = acha_circulo_mais_proximo(variavel);
-            mostra_tooltip(d,variavel)
-        })
-        .on("mouseout",function (d) {
-            tira_destaque(variavel);
-            esconde_tooltip();
-        })
-        .on("mousemove",move_tooltip);
-
-    svg.append("g")
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("cx", function (d) {
-            return x(d.date);
-        })
-        .attr("cy", function (d) {
-            return y(d.valor);
-        })
-        .attr("class", "circle " + variavel)
-        .attr("r", 8)
-        .style("opacity",0.1)
-        .style("fill","light-gray")
-
-        .on("mouseover",function (d) {
-            poe_destaque(variavel);
-            mostra_tooltip(d,variavel);
-        })
-        .on("mouseout",function (d) {
-            tira_destaque(variavel);
-            esconde_tooltip();
-        })
-        .on("mousemove",move_tooltip);
-
 }
