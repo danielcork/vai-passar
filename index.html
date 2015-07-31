@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="pt-br">
 	<head>
         <!-- SEO -->
@@ -188,6 +188,13 @@
         </div>
     </section>
 
+	<style>
+		
+		.ui-progressbar-value {
+    background-color: #ccc;
+  }
+	</style>
+
     <!-- SCRIPTS -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
     <script>
@@ -211,20 +218,21 @@
     <script>
 
       $('#opcoes dl').click(function() {
-        var porcentagemFake = acerta_chances()*100;
+        var valor = acerta_chances()*100;
         $('.knob')
-            .val(porcentagemFake)
+            .val(valor)
             .trigger('change');
 	$( "#progressbar" ).progressbar({
-      		value: porcentagemFake
+      		value: valor
     		});
+	barraCor(valor);
       });	
   
     </script>
 
      <script>
         var cor;
-
+	
             $(function($) {
                 $(".knob").knob({
                     format : function (value) {
@@ -240,6 +248,9 @@
                         if (value > 70) { 
                           cor = '#00884e';
                           $('.tooltips span').css('visibility', 'visible');
+			  
+
+
                         } 
 			else if ( value < 30 ) {
 			  cor = '#e80000';
@@ -337,11 +348,36 @@
       value: false
     });
   });
+ 
+
+ function barraCor(value) {
+      progressbar = $('#progressbar');
+      progressbarValue = progressbar.find( ".ui-progressbar-value" );
+      if (value > 70) { 
+              cor = '#00884e';
+      	      progressbarValue.css({
+                    "background": cor
+              });
+      } 
+      else if ( value < 30 ) {
+	      cor = '#e80000';
+	      progressbarValue.css({
+                    "background": cor
+              });
+      }
+      else {
+              cor = '#666666';
+	      progressbarValue.css({
+                    "background": cor
+              });
+       }
+ 
+  }
 
         </script>
 <style>
   #progressbar .ui-progressbar-value {
-    background-color: #ccc;
+    background: #666666;
   }
   </style>
     <!--  Segunda tag comScore -->
