@@ -161,7 +161,7 @@
           </dl>
         </section>
       </div>
-      <div style="clear:both"></div>
+      <div style="clear:both">
           <div class="knob-wrap">
               <p class="chances">Chances de Aprovar</p>
               <p class="porcentagem"></p>
@@ -170,12 +170,13 @@
               </a>
               <input class="knob" data-width="260" data-height="260" value="0" data-fgColor="#666666" data-thickness=".05" data-angleOffset="180" data-readOnly="true">
           </div>
-
-			     <p class="chances">Chances de Aprovar</p>
-	  <div id="progressbar"> 
-	
-          </div>
-
+	<div class="barra_e_texto">
+		<p class="chances">Chances de Aprovar</p>
+	</div>
+	  <div id="progressbar" style="inline"> 	
+          
+	</div>
+</div>
       <div style="clear:both"></div>
 
     </section>
@@ -219,6 +220,7 @@
 
       $('#opcoes dl').click(function() {
         var valor = acerta_chances()*100;
+	
         $('.knob')
             .val(valor)
             .trigger('change');
@@ -226,6 +228,7 @@
       		value: valor
     		});
 	barraCor(valor);
+	barraValor(valor);
       });	
   
     </script>
@@ -344,8 +347,11 @@
 
 
   $(function() {
+	
     $( "#progressbar" ).progressbar({
-      value: false
+      value: false,
+
+
     });
   });
  
@@ -373,13 +379,29 @@
        }
  
   }
+  function barraValor(value) { 
+      var progressbar = $( "#progressbar" ),
+      progressLabel = $( ".progress-label" );
+	progressLabel.text( progressbar.progressbar(value ) + "%" );
+  }
 
         </script>
 <style>
   #progressbar .ui-progressbar-value {
     background: #666666;
   }
+
+  
   </style>
+<style>
+.progress-label {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+</style>
     <!--  Segunda tag comScore -->
     <!-- - The UDM comScore Tag consists of two code snippets. Please include both code snippets in your web pages. part 2/2-->
     <script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/7672308/ct.js"></script>
