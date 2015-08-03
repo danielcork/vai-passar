@@ -4,12 +4,12 @@
 var partidos = {
     "PT": "#BE003E",
     "PSDB": "#634600",
-    "DEM": "#9A740F",
+    //"DEM": "#9A740F",
     "PMDB": "#3A3A8B",
     "PSD": "#7BAC39",
     //"PP": "#5E196F",
-    "PRB": "#98007F",
-    "PSB": "#0066A4",
+    //"PRB": "#98007F",
+    //"PSB": "#0066A4",
     "Geral": "gray"
 }
 

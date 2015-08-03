@@ -433,7 +433,7 @@ a.tooltips span {
 /* CHARTS */
 
 .chances {
-  width: 150px;
+  width: 100%;
   text-transform: uppercase;
   color: #666;
   font-size: 16px;
@@ -538,4 +538,8 @@ div#grafico_pe text {
   margin-left:auto;
   margin-right:auto;
  color:#5d5d5d;
+}
+
+.barra_e_texto {
+
 }

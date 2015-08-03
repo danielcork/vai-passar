@@ -37,6 +37,23 @@ $(document).ready(function() {
   	});
 });
 
-	
 
-  
+
+$(document).ready(function () {
+
+    var menu = $('.barra_e_texto');
+    var origOffsetY = menu.offset().top;
+
+    function scroll() {
+        var scrollBottom = $(window).scrollTop() + $(window).height();
+
+        if (scrollBottom < origOffsetY) {
+            menu.addClass('navbar-fixed-bottom');
+        } else {
+            menu.removeClass('navbar-fixed-bottom');
+        }
+    }
+
+    document.onscroll = scroll;
+
+});
