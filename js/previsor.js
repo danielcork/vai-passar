@@ -1,5 +1,5 @@
 var dados_previsor;
-var array_teste;
+var cor;
 var dict_voto = { 'a': '0',
 'b':'1',
 'c':'2'
@@ -10,18 +10,9 @@ var dict_voto = { 'a': '0',
 
 function abre_dados() { // Carrega dados do previsor
     d3.csv("dados/previsto.csv", function(dados) {
-        dados_previsor = dados
+        dados_previsor = dados;
+        setTimeout(muda_valores,500);
     });
-    array_teste = {pt: "2",
-	gov: "2",
-	minoria: "2",
-	pmdb: "2",
-	pp: "2",
-	prb: "2",
-	psb: "2",
-	psd: "2",
-	psdb: "2",
-	dem: "2"};
 }
 
 
@@ -38,7 +29,6 @@ function descobre_resultado(escolhido) { // Função recebe variáveis escolhida
 	}
 	return dados_totais[0];
 }
-
 
 
 function le_escolhido() { // Função lê dados escolhidos e retorna array informando-os
@@ -68,11 +58,175 @@ function le_escolhido() { // Função lê dados escolhidos e retorna array infor
 
 }
 
-
-
 function acerta_chances() {
 	var escolhido=le_escolhido();
 	resultado=descobre_resultado(escolhido)["resultado"];
 	return resultado;
 }
+
+function muda_valores() {
+    var valor = acerta_chances()*100;
+    $('.knob')
+        .val(valor)
+        .trigger('change');
+    $( "#progressbar" ).progressbar({
+        value: valor
+    });
+    barraCor(valor);
+    barraValor(valor);
+}
+
+$('#opcoes dl').click(function() {
+    muda_valores();
+});
+
+function barraCor(value) {
+    progressbar = $('#progressbar');
+    progressbarValue = progressbar.find( ".ui-progressbar-value" );
+    if (value > 70) {
+        cor = '#00884e';
+        progressbarValue.css({
+            "background": cor
+        });
+    }
+    else if ( value < 30 ) {
+        cor = '#e80000';
+        progressbarValue.css({
+            "background": cor
+        });
+    }
+    else {
+        cor = '#666666';
+        progressbarValue.css({
+            "background": cor
+        });
+    }
+
+}
+function barraValor(value) {
+    var progressbar = $( "#progressbar" ),
+        progressLabel = $( ".progress-label" );
+    progressLabel.text( Math.round(value) + "%" );
+}
+
+
+$(function($) {
+    $(".knob").knob({
+        format : function (value) {
+            return value + '%';
+        },
+        change : function (value) {
+            //console.log("change : " + value);
+        },
+        release : function (value) {
+            //console.log(this.$.attr('value'));
+            // console.log("release : " + value);
+
+            if (value > 70) {
+                cor = '#00884e';
+                $('.tooltips span').css('visibility', 'visible');
+
+
+
+            }
+            else if ( value < 30 ) {
+                cor = '#e80000';
+                $('.tooltips span').css('visibility', 'hidden');
+            }
+            else {
+                cor = '#666666';
+                $('.tooltips span').css('visibility', 'hidden');
+            }
+
+            $('.knob').trigger(
+                'configure',
+                {
+                    "fgColor": cor
+                }
+            );
+            $('.knob, .porcentagem').css('color', cor);
+        },
+        cancel : function () {
+            console.log("cancel : ", this);
+        },
+        /*format : function (value) {
+         return value + '%';
+         },*/
+        draw : function () {
+
+            // "tron" case
+            if(this.$.data('skin') == 'tron') {
+
+                this.cursorExt = 0.3;
+
+                var a = this.arc(this.cv)  // Arc
+                    , pa                   // Previous arc
+                    , r = 1;
+
+                this.g.lineWidth = this.lineWidth;
+
+                if (this.o.displayPrevious) {
+                    pa = this.arc(this.v);
+                    this.g.beginPath();
+                    this.g.strokeStyle = this.pColor;
+                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                    this.g.stroke();
+                }
+
+                this.g.beginPath();
+                this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+                this.g.stroke();
+
+                this.g.lineWidth = 2;
+                this.g.beginPath();
+                this.g.strokeStyle = this.o.fgColor;
+                this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                this.g.stroke();
+
+                return false;
+            }
+        }
+    });
+
+    // Example of infinite knob, iPod click wheel
+    var v, up=0,down=0,i=0
+        ,$idir = $("div.idir")
+        ,$ival = $("div.ival")
+        ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
+        ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
+    $("input.infinite").knob(
+        {
+            min : 0
+            , max : 20
+            , stopper : false
+            , change : function () {
+            if(v > this.cv){
+                if(up){
+                    decr();
+                    up=0;
+                }else{up=1;down=0;}
+            } else {
+                if(v < this.cv){
+                    if(down){
+                        incr();
+                        down=0;
+                    }else{down=1;up=0;}
+                }
+            }
+            v = this.cv;
+        }
+        });
+});
+
+
+$(function() {
+
+    $( "#progressbar" ).progressbar({
+        value: false,
+
+
+    });
+});
+
 
