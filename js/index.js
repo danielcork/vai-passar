@@ -133,7 +133,6 @@ $('#opcoes').bind("touchmove", function(e){
 // http://dev.jquery.com/ticket/6446
 // remove once it's fixed
 if ( /webkit.*mobile/i.test(navigator.userAgent)) {
-  alert('opa, e webkit mobile');
   (function($) {
       $.fn.offsetOld = $.fn.offset;
       $.fn.offset = function() {
