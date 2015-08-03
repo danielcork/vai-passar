@@ -124,7 +124,7 @@ $(function($) {
 
             }
             else if ( value < 40 ) {
-                cor = '#e80000';
+                cor = '#b71067';
                 $('.tooltips span').css('visibility', 'hidden');
             }
             else {
