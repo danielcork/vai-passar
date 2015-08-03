@@ -439,7 +439,7 @@ a.tooltips span {
   font-size: 16px;
   line-height: 1.2;
   text-align: center;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
 }
 
@@ -541,5 +541,8 @@ div#grafico_pe text {
 }
 
 .barra_e_texto {
-
+    display:block;
+    background: white;
+    border-top-color: #5d5d5d;
+    border-top-width: 1px;
 }

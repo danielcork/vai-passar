@@ -49,8 +49,10 @@ $(document).ready(function () {
 
         if (scrollBottom < origOffsetY) {
             menu.addClass('navbar-fixed-bottom');
+            menu.css("border","1px solid");
         } else {
             menu.removeClass('navbar-fixed-bottom');
+            menu.css("border","0px");
         }
     }
 
