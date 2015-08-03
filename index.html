@@ -122,20 +122,24 @@
         <option value="MPWWW">MPWWW</option>
       </select>
       <div class="projeto-info" id="como-vota">
-        <h5>Defina como votam os partidos</h5>
+        <h5>Oriente as bancadas</h5>
         <!--
         <div id="slider"></div>
           <p id="amount"></p>
         -->
         <section id="opcoes">
           <dl>
+
+            <dt id="gov">Governo</dt>
+            <dd class="b"></dd>
+            
             <dt id="pt">PT</dt>
             <dd class="b"></dd>
             
-            <dt id="psdb">PSDB</dt>
+	    <dt id="minoria">Minoria</dt>
             <dd class="b"></dd>
-            
-            <dt id="gov">Governo</dt>
+
+            <dt id="psdb">PSDB</dt>
             <dd class="b"></dd>
             
             <dt id="pmdb">PMDB</dt>
@@ -144,15 +148,12 @@
             <dt id="psd">PSD</dt>
             <dd class="b"></dd>
 
-	    <dt id="minoria">Minoria</dt>
-            <dd class="b"></dd>
-
           </dl>
         </section>
       </div>
       <div id="mostradores" style="clear:both">
           <div class="knob-wrap hidden-md hidden-sm visible-lg hidden-xs">
-              <p class="chances">Chances de Aprovar</p>
+              <p class="chances">Chance de aprovar</p>
               <p class="porcentagem"></p>
        	       <a class="tooltips" href="#">|
                 <span>"Sim" Vence</span>
@@ -172,7 +173,7 @@
 
     <section id="chart">
         <div id="grafico_pe_titulo">
-            <h1>Taxa de governismo dos partidos (%)</h1>
+            <h1>Histórico de governismo por partido (%)</h1>
         </div>
         <div id="grafico_pe"></div>
         <div class="tooltip" style="opacity:0">
@@ -181,6 +182,11 @@
         </div>
     </section>
 
+	<section id="para_entender">
+		<div id="paraentender">
+			<p> Para entender o modelo estatístico por trás do cálculo de probabilidades desta ferramenta, <a href="o-que-e.html"> veja aqui </a> </p>		
+		</div>
+	</section>
     <!-- SCRIPTS -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
     <script>
