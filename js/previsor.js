@@ -7,7 +7,6 @@ var dict_voto = { 'a': '0',
 
 
 
-
 function abre_dados() { // Carrega dados do previsor
     d3.csv("dados/previsto.csv", function(dados) {
         dados_previsor = dados;
@@ -69,11 +68,6 @@ function muda_valores() {
     $('.knob')
         .val(valor)
         .trigger('change');
-    $( "#progressbar" ).progressbar({
-        value: valor
-    });
-    barraCor(valor);
-    barraValor(valor);
 }
 
 $('#opcoes dl').click(function() {
@@ -219,14 +213,5 @@ $(function($) {
         });
 });
 
-
-$(function() {
-
-    $( "#progressbar" ).progressbar({
-        value: false,
-
-
-    });
-});
 
 

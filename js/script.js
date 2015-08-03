@@ -38,24 +38,3 @@ $(document).ready(function() {
 });
 
 
-
-$(document).ready(function () {
-
-    var menu = $('.barra_e_texto');
-    var origOffsetY = menu.offset().top;
-
-    function scroll() {
-        var scrollBottom = $(window).scrollTop() + $(window).height();
-
-        if (scrollBottom < origOffsetY) {
-            menu.addClass('navbar-fixed-bottom');
-            menu.css("border","1px solid");
-        } else {
-            menu.removeClass('navbar-fixed-bottom');
-            menu.css("border","0px");
-        }
-    }
-
-    document.onscroll = scroll;
-
-});

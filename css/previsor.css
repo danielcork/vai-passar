@@ -186,7 +186,6 @@ body.edados h1 {
 
 #content h1 {
     color: #5d5d5d;
-    padding-bottom: 12px;
 }
 /*
 .select-style {
@@ -515,34 +514,5 @@ div#resto {
 
 div#grafico_pe text {
     font-family: 'freightbook';
-    font-size: 1.5rem;
-}
-
-/*BARRA DE PROGRESSO*/
-.ui-progressbar-value {
-    background-color: #ccc;
-}
-
-#progressbar .ui-progressbar-value {
-    position: relative;
-    width:100%;
-    background: #666666;
-}
-.progress-label {
-  position: absolute;
-  padding-top:3px;
-  z-index: 1000;
-  text-align: right;
-  width: 40%;
-  font-weight: bold;
-  margin-left:auto;
-  margin-right:auto;
- color:#5d5d5d;
-}
-
-.barra_e_texto {
-    display:block;
-    background: white;
-    border-top-color: #5d5d5d;
-    border-top-width: 1px;
+    font-size: 12px;
 }
