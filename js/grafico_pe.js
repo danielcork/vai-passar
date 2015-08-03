@@ -7,7 +7,7 @@ var partidos = {
     "DEM": "#9A740F",
     "PMDB": "#3A3A8B",
     "PSD": "#7BAC39",
-    "PP": "#5E196F",
+    //"PP": "#5E196F",
     "PRB": "#98007F",
     "PSB": "#0066A4",
     "Geral": "gray"
@@ -19,7 +19,7 @@ var margin = {
         top: 20,
         right: 20,
         bottom: 30,
-        left: 50
+        left: 30
     },
     width = $("#content").width() - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -35,7 +35,7 @@ var y = d3.scale.linear()
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-    .tickFormat(d3.time.format("%m/%Y"));
+    .tickFormat(d3.time.format("%m/%y"));
 
 var yAxis = d3.svg.axis()
     .scale(y)
@@ -55,6 +55,12 @@ var svg = d3.select("#grafico_pe").append("svg")
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+//coloca um retangulo branco
+svg.append("rect")
+    .attr("width",width+20)
+    .attr("height",height)
+    .style("fill","white");
 
 d3.json("dados/hist_dilma_camara_2.json", function(error, data) {
     if (error) throw error;
@@ -78,33 +84,20 @@ d3.json("dados/hist_dilma_camara_2.json", function(error, data) {
     }));
     y.domain([0,100]);
 
-    //coloca um retangulo branco
-    svg.append("rect")
-        .attr("width",width+20)
-        .attr("height",height)
-        .style("fill","white");
 
     //coloca eixos
     svg.append("g")
         .transition()
         .duration(500)
         .attr("class", "x axis")
-        .attr("transform", "translate(0," +( height +8 )+ ")")
+        .attr("transform", "translate(0," +( height )+ ")")
         .style("background-color","white")
         .call(xAxis);
 
     svg.append("g").transition()
         .duration(500)
         .attr("class", "y axis")
-        .attr("transform", "translate(-20,0)")
         .call(yAxis);
-
-    svg.append("text")
-        .attr("transform", "translate(-27,0) rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Taxa de governismo (%)");
 
         cria_seletores_tooltip()
     for (partido in partidos) {
@@ -130,12 +123,14 @@ function desenha_linha(variavel) {
         .style("opacity",0.5)
         .on("click", function () {
             poe_destaque(variavel);
-            var d = acha_circulo_mais_proximo(variavel);
-            mostra_tooltip(d,variavel);
+            var x_ = d3.mouse(this)[0];
+            var d = acha_circulo_mais_proximo(variavel,x_);
+                mostra_tooltip(d,variavel);
         })
         .on("mouseover", function () {
             poe_destaque(variavel);
-            var d = acha_circulo_mais_proximo(variavel);
+            var x_ = d3.mouse(this)[0];
+            var d = acha_circulo_mais_proximo(variavel,x_);
             mostra_tooltip(d,variavel);
         })
         .on("mouseout",function (d) {
@@ -227,12 +222,11 @@ function esconde_tooltip() {
         .style("opacity",0)
 }
 
-function acha_circulo_mais_proximo(variavel) {
-    var x_ = d3.event.pageX;
+function acha_circulo_mais_proximo(variavel,x_) {
     var maximo = width;
     var objeto;
     d3.selectAll("circle."+variavel).each(function (d) {
-        var distancia = Math.abs(x_ - d3.select(this).attr("cx"));
+        var distancia = Math.abs(d3.select(this).attr("cx") - x_);
         if (distancia < maximo) {
             maximo = distancia;
             objeto = d;

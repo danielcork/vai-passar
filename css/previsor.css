@@ -173,7 +173,7 @@ h1 {
     /*top: 56px;*/
     text-align: center;
     padding: 80px 12px 24px;
-    width: 100%;
+    width: 90%;
     max-width: 550px;
     margin: 0 auto;
     display: inline-block;
@@ -262,8 +262,6 @@ select:focus {
 #chart {
     width: 100%;
     background-color: #f5f5f5;
-    background-image: url("http://infograficos.estadao.com.br/public/paladar/receitas-de-ragu/css/../img/shadow-tra.png");
-    background-repeat: repeat-x;
     padding: 68px 0;
     text-align: center;
 }
@@ -467,8 +465,8 @@ a.tooltips span {
   font-weight: bold;
 }
 
-.axis path {
-    display: none;
+.axis .domain {
+    display:none;
 }
 
 .line {
@@ -500,6 +498,9 @@ div.tooltip b {
     font-family: Flama-Bold;
 }
 
+#grafico_pe_titulo h1{
+    color: #5d5d5d
+}
 
 div#topo {
     color: white;
@@ -510,4 +511,9 @@ div#topo {
 div#resto {
     padding: 5px;
     line-height: 1.5;
+}
+
+text {
+    font-family: 'freightbook';
+    font-size: 0.9rem;
 }
