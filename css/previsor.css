@@ -273,9 +273,9 @@ select:focus {
   line-height: 1.5;
   padding-left: 18px;
   padding-right: 18px;
-  text-align: left;
+  text-align: justify;
   color: #5d5d5d;
-  margin-top: 12px;
+    padding-bottom: 5px;
 }
 
 body.edados h5 {
