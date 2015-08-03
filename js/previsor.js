@@ -116,14 +116,14 @@ $(function($) {
             //console.log(this.$.attr('value'));
             // console.log("release : " + value);
 
-            if (value > 70) {
+            if (value > 60) {
                 cor = '#00884e';
                 $('.tooltips span').css('visibility', 'visible');
 
 
 
             }
-            else if ( value < 30 ) {
+            else if ( value < 40 ) {
                 cor = '#e80000';
                 $('.tooltips span').css('visibility', 'hidden');
             }
