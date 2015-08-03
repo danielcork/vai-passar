@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="css/previsor.css" />
         <link rel="stylesheet" href="css/seletor.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
 
         <!-- HEAD HEADER -->
         <!-- Primeira tag Adobe DTM-->
@@ -50,7 +51,7 @@
             ga('send', 'pageview');
         </script>
 	</head>
-	<body class="loading">
+	<body class="loading edados">
     <!-- BODY HEADER -->
     <!-- Primeira tag comScore -->
     <!-- The UDM comScore Tag consists of two code snippets. Please include both code snippets in your web pages. part 1/2-->
@@ -158,8 +159,8 @@
           </dl>
         </section>
       </div>
-      <div style="clear:both">
-          <div class="knob-wrap">
+      <div id="mostradores" style="clear:both">
+          <div class="knob-wrap hidden-md hidden-sm visible-lg hidden-xs">
               <p class="chances">Chances de Aprovar</p>
               <p class="porcentagem"></p>
        	       <a class="tooltips" href="#">|
@@ -167,11 +168,11 @@
               </a>
               <input class="knob" data-width="260" data-height="260" value="0" data-fgColor="#666666" data-thickness=".05" data-angleOffset="180" data-readOnly="true">
           </div>
-	<div class="barra_e_texto">
+	<div class="barra_e_texto hidden-lg visible-sm visible-md visible-xs">
 		<p class="chances">Chances de Aprovar</p>
-	</div>
-	  <div id="progressbar">
-          <div class="progress-label">0%</div>
+	    <div id="progressbar">
+            <div class="progress-label">0%</div>
+        </div>
 	</div>
 </div>
       <div style="clear:both"></div>
@@ -189,7 +190,6 @@
         </div>
     </section>
 
-
     <!-- SCRIPTS -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
     <script>
@@ -206,10 +206,10 @@
     <script type="text/javascript" src="js/main.js?v=1.1"></script>
     <script type="text/javascript" src="js/script.js?v=1.1"></script>
     <script src="js/index.js"></script>
-
     <script src="js/d3.min.js"></script>
     <script src="js/previsor.js"></script>
     <script src="js/grafico_pe.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!--  Segunda tag comScore -->
     <!-- - The UDM comScore Tag consists of two code snippets. Please include both code snippets in your web pages. part 2/2-->
     <script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/7672308/ct.js"></script>

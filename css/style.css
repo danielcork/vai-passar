@@ -125,7 +125,7 @@ article, .colunas {
 }
 
 /* TEMA GERAL */
-body {
+body.edados {
 	font-family: 'flamabook' !important;
 }
 
