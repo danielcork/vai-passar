@@ -439,7 +439,6 @@ a.tooltips span {
   line-height: 1.2;
   text-align: center;
   margin: 0 auto;
-  top: 95px;
   position: relative;
 }
 
@@ -516,4 +515,21 @@ div#resto {
 text {
     font-family: 'freightbook';
     font-size: 0.9rem;
+}
+
+/*BARRA DE PROGRESSO*/
+.ui-progressbar-value {
+    background-color: #ccc;
+}
+
+#progressbar .ui-progressbar-value {
+    background: #666666;
+}
+.progress-label {
+  position: absolute;
+  padding-top: 8px;
+  padding-left: 16px;
+  left: 45%;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #fff;
 }
