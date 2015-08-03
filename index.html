@@ -380,10 +380,9 @@
  
   }
   function barraValor(value) { 
-      console.log(value);
       var progressbar = $( "#progressbar" ),
       progressLabel = $( ".progress-label" );
-	progressLabel.text( progressbar.progressbar(value ) + "%" );
+	progressLabel.text( Math.round(value) + "%" );
   }
 
         </script>
@@ -397,13 +396,12 @@
 <style>
 .progress-label {
     position: absolute;
-    left: 50%;
-    top: 4px;
+    left: 45%;
     font-weight: bold;
     text-shadow: 1px 1px 0 #fff;
   }
 </style>
-    <!--  Segunda tag comScore -->
+    <!--  Segunda tag comScore -->	
     <!-- - The UDM comScore Tag consists of two code snippets. Please include both code snippets in your web pages. part 2/2-->
     <script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/7672308/ct.js"></script>
 
