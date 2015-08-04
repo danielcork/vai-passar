@@ -10,7 +10,7 @@ var dict_voto = { 'a': '0',
 function abre_dados() { // Carrega dados do previsor
     d3.csv("dados/previsto.csv", function(dados) {
         dados_previsor = dados;
-        setTimeout(muda_valores,500);
+   //     setTimeout(muda_valores,500); // Parece que encontramos um workaround
     });
 }
 
