@@ -428,14 +428,15 @@ a.tooltips span {
 /* CHARTS */
 
 .chances {
-  width: 100%;
   text-transform: uppercase;
   color: #666;
   font-size: 16px;
   line-height: 1.2;
   text-align: center;
-  margin: 0;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  padding-top:40px;
+
 }
 
 .porcentagem {
@@ -449,6 +450,7 @@ a.tooltips span {
 }
 
 .knob-wrap {
+  position:relative;
   width: 260px;
   height:260px;
   margin: -30px auto 0;

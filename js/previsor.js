@@ -108,7 +108,7 @@ $(function($) {
     $(".knob").knob({
         format : function (value) {
             return value + '%';
-        },
+        },  
         change : function (value) {
             //console.log("change : " + value);
         },
@@ -118,18 +118,13 @@ $(function($) {
 
             if (value > 60) {
                 cor = '#00884e';
-                $('.tooltips span').css('visibility', 'visible');
-
-
 
             }
             else if ( value < 40 ) {
                 cor = '#b71067';
-                $('.tooltips span').css('visibility', 'hidden');
             }
             else {
                 cor = '#666666';
-                $('.tooltips span').css('visibility', 'hidden');
             }
 
             $('.knob').trigger(

@@ -32,7 +32,7 @@ $(document).ready(function() {
 		    	$('#capa').addClass('menu');
 		    	setTimeout(function(){ 
 		    		$('html, body').css({ overflow: 'auto' }); 
-		    	},1501);
+		    	},951);
 			});
   	});
 });
