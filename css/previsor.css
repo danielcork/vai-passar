@@ -276,7 +276,16 @@ select:focus {
   color: #5d5d5d;
 }
 
-body.edados h5 {
+body.edados h4 {
+    color: black;
+    font-family: 'flama';
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+body.edados h2 {
     color: #5d5d5d;
     margin-top: 30px !important;
     margin-bottom: 0px !important;
