@@ -102,7 +102,7 @@ $.fn.ticker = function( options ) {
                 prev = fill(target.data('prev').split('')),
                 print = prev;
 
-            if (texts[k].indexOf('9999')==-1) {
+            if (texts[k].indexOf('999')==-1) {
                 $.each(next, function(i) {
                     if (next[i] == prev[i]) {
                         return;
