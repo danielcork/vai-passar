@@ -240,3 +240,4 @@ function acha_circulo_mais_proximo(variavel,x_) {
     })
     return objeto
 }
+
