@@ -3,7 +3,8 @@ library(tidyr)
 library(dplyr)
 
 
-setwd('~/Documents/previsor/planilhas/')
+# Burga, muda essa pasta 
+setwd('/var/www/html/vai-passar/previsor/planilhas/')
 
 orientacoes <- read.csv('orientacoes.csv', stringsAsFactors=FALSE, sep=';', header=FALSE)
 # Abre o banco
@@ -228,46 +229,4 @@ write(votacoes, "votacoes.json")
 
 # Abre o banco
 
-
-
-
-nome_colunas <- colnames(votos)[2:length(colnames(votos))]
-
-for (i in colnames(previsor)) {
-  print(i)
-  print(table(votos[[i]]))
-}
-
-
-
-str(votos)
-
-n <- (length(colnames(votos))-2)
-
-matriz_indicacoes <- matrix(NA, nrow=n, ncol=n)
-
-
-
-rownames(matriz_indicacoes) <- colnames(votos)[2:(length(colnames(votos))-1)]
-colnames(matriz_indicacoes) <- colnames(votos)[2:(length(colnames(votos))-1)]
-
-i <- 2
-j <- 2
-
-
-for (i in 2:(length(colnames(votos))-1)) {
-  for (j in 2:(length(colnames(votos))-1)) {
-    print(i)
-    print(j)
-    quantos <- sum(as.vector(votos[colnames(votos)[i]])==as.vector(votos[colnames(votos)[j]]))
-    total <- nrow(votos[colnames(votos)[i]])
-    matriz_indicacoes[(i-1), (j-1)] <- (quantos/total)
-  }
-}
-
-head(matriz_indicacoes)
-
-matriz_indicacoes <- as.data.frame(matriz_indicacoes)
-
-write.csv(matriz_indicacoes, file="matriz_indicacoes.csv")
 
