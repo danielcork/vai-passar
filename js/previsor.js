@@ -5,6 +5,9 @@ var dict_voto = { 'a': '0',
     'c':'2'
 };
 
+   $("#o-que-e").click(function(){
+        $("#entenda").slideToggle("slow");
+    });
 
 function abre_dados() { // Carrega dados do previsor
     d3.csv("dados/previsto.csv", function(dados) {
