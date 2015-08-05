@@ -43,8 +43,15 @@ $(document).ready(function() {
 function roda_splitflap() {
     if (!(flap)) {
         flap = true
-        $('.text').ticker();
-        $(".text").click();
+        var data_votacoes = {};
+
+        $.getJSON("dados/votacoes.json", function(result){
+            data_votacoes=result;
+            $("#data").html(data_votacoes["data"]);
+            $("#nvotacoes").html(data_votacoes["nvotacoes"]);
+            $('.text').ticker();
+            $(".text").click();
+        });
     }
 }
 
