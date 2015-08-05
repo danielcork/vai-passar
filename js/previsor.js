@@ -1,15 +1,9 @@
 var dados_previsor;
 var cor;
 var dict_voto = { 'a': '0',
-'b':'1',
-'c':'2'
+    'b':'1',
+    'c':'2'
 };
-
-
-
-var data_votacoes = {};
-
-$.getJSON("dados/votacoes.json", function(result){ data_votacoes=result});
 
 
 function abre_dados() { // Carrega dados do previsor

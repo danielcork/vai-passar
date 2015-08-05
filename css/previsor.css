@@ -433,9 +433,9 @@ a.tooltips span {
   font-size: 16px;
   line-height: 1.2;
   text-align: center;
-  position: absolute;
-  width: 100%;
-  padding-top:40px;
+  position:relative;
+  display:inline-block;
+    top:80px;
 
 }
 
@@ -454,7 +454,8 @@ a.tooltips span {
   width: 260px;
   height:260px;
   margin: -30px auto 0;
-  padding-bottom: 96px;
+    padding-bottom: 96px;
+
 }
 
 .knob {
