@@ -121,8 +121,8 @@ $( document ).ready(function() {
         }
         //coloca tooltip no lugar
         var coordenadas = {
-            "top":1395,
-            "left":parseInt($("svg").offset().left) + 30
+            "top":$("svg").offset().top*0.90 + height-margin.top - margin.bottom,
+            "left":parseInt($("svg").offset().left) + $(window).width()/45
         }
         $(".tooltip").offset(coordenadas)
 
