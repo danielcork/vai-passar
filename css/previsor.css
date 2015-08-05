@@ -156,7 +156,7 @@ body.edados h1 {
 /* MENU CONTENT */
 
 #capa.menu.menu-content {
-    height: 3000%;
+    height: 1000%;
     -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
 }
