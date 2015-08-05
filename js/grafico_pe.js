@@ -119,19 +119,20 @@ $( document ).ready(function() {
         for (partido in partidos) {
             desenha_linha(partido);
         }
-        console.log($())
+        //coloca tooltip no lugar
+        var coordenadas = {
+            "top":1395,
+            "left":parseInt($("svg").offset().left) + 30
+        }
+        $(".tooltip").offset(coordenadas)
+
+        //finge que clicou no ultimo geral para preencher a tooltip
         fakeClick(d3.selectAll("circle.Geral").last()[0][0])});
 
     function cria_seletores_tooltip() {
         tooltip = d3.select(".tooltip");
         topo = d3.select("#topo");
         resto = d3.select("#resto");
-        //coloca tooltip no lugar
-        tooltip.style({
-            "top":"1370px",
-            "left":"450px"
-        })
-
     }
 
     function desenha_linha(variavel) {
