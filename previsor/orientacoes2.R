@@ -218,13 +218,12 @@ votacoes$data <- as.character(votacoes$data)
 
 
 dato <- strsplit(votacoes$data, '-')
-
-votacoes$data <- paste0(c(dato[[1]][3], '/', dato[[1]][2]), collapse='')
+ano <- as.numeric(dato[[1]][[1]])-2000
+votacoes$data <- paste0(c(dato[[1]][3], '/', dato[[1]][2], '/', as.character(ano)), collapse='')
 library(RJSONIO)
 
 votacoes <- toJSON(votacoes)
 write(votacoes, "votacoes.json")
-
 
 
 # Abre o banco

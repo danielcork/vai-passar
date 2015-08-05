@@ -40,11 +40,13 @@ $(document).ready(function() {
   	});
 });
 
+
+var data_votacoes = {};
+
 function roda_splitflap() {
     if (!(flap)) {
         flap = true
-        var data_votacoes = {};
-
+	console.log(data_votacoes);
         $.getJSON("dados/votacoes.json", function(result){
             data_votacoes=result;
             $("#data").html(data_votacoes["data"]);
