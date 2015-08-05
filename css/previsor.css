@@ -517,11 +517,13 @@ div#grafico_pe text {
 
 /*flip*/
 .text{
-    overflow:hidden;font-family:flama; font:15px/1 monospace;
+    overflow:hidden;font-family:flamabold; font:15px/1 monospace;
 }
 
 .text span{
     background:#444;color:#fff;
+    margin-bottom:4px;
+
 }
 
 .ultimo {
