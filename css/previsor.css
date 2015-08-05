@@ -522,7 +522,9 @@ div#grafico_pe text {
 
 .text span{
     background:#444;color:#fff;
-    margin-bottom:4px;
+    padding-bottom:4px;
+    padding-top:4px;
+
 
 }
 
