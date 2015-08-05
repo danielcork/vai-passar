@@ -141,7 +141,7 @@ test <- votos[-train_lines,]
 
 
 modelo <- randomForest(resultado ~ gov + minoria + pt + pmdb
-                       + psdb + prb + + psb + psd + pps,
+                       + psdb + psd,
                        data=train, ntree=500)
 
 test_forest <- predict(modelo, test, type="prob")[,2]
