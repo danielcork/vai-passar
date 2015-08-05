@@ -264,6 +264,8 @@ select:focus {
     padding: 20px 0;
     text-align: center;
     margin-top:20px;
+
+
 }
 
 .projeto-info p {
@@ -391,47 +393,6 @@ body.edados h5 {
 
 
 
-/* TOOLTIP */
-
-a.tooltips {
-  position: relative;
-  display: inline;
-  top: 265px;
-  font-family: 'flama';
-  letter-spacing: -0.1em;
-  color: #868686;
-}
-a.tooltips span {
-  position: absolute;
-  width:140px;
-  color: #FFFFFF;
-  background: #00884E;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  visibility: hidden;
-  border-radius: 6px;
-  letter-spacing: 0em;
-}
-a.tooltips span:after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -8px;
-  width: 0; height: 0;
-  border-top: 8px solid #00884E;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
-}
-a.tooltips span {
-  font-weight: bold;
-  font-size: 14px;
-  opacity: 1;
-  bottom: 50px;
-  left: 50%;
-  margin-left: -70px;
-}
 
 
 /* CHARTS */
@@ -484,10 +445,11 @@ a.tooltips span {
 
 div.tooltip {
     position: absolute;
+    top:395px;
+    left:15%;
     text-align: left;
-    width: auto;
+    width: 150px;
     height: auto;
-    margin-left: 20px;
     font: 14px Arial;
     background: white;
     border-radius: 8px;
@@ -566,3 +528,13 @@ div.texto {
     color: #5d5d5d;
     margin-bottom:4px;
 }
+
+#grafico_wrapper {
+    position:relative;
+    display:block;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+

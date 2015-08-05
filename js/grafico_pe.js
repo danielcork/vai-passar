@@ -119,12 +119,6 @@ $( document ).ready(function() {
         for (partido in partidos) {
             desenha_linha(partido);
         }
-        //coloca tooltip no lugar
-        var coordenadas = {
-            "top":$("svg").offset().top*0.90 + height-margin.top - margin.bottom,
-            "left":parseInt($("svg").offset().left) + $(window).width()/45
-        }
-        $(".tooltip").offset(coordenadas)
 
         //finge que clicou no ultimo geral para preencher a tooltip
         fakeClick(d3.selectAll("circle.Geral").last()[0][0])});
