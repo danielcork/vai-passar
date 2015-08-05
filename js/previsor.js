@@ -7,6 +7,11 @@ var dict_voto = { 'a': '0',
 
 
 
+var data_votacoes = {};
+
+$.getJSON("dados/votacoes.json", function(result){ data_votacoes=result});
+
+
 function abre_dados() { // Carrega dados do previsor
     d3.csv("dados/previsto.csv", function(dados) {
         dados_previsor = dados;
