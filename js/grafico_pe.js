@@ -13,6 +13,20 @@ var partidos = {
     "Geral": "gray"
 }
 
+//funcao pra fakeclick
+var fakeClick = function(target) {
+    var event = document.createEvent('MouseEvents');
+    event.initMouseEvent('click');
+    target.dispatchEvent(event);
+};
+
+//funcao pra pegar ultimo elemento no d3.selectAll
+d3.selection.prototype.last = function() {
+    var last = this.size() - 1;
+    return d3.select(this[0][last]);
+};
+
+//agora comecamos no d3
 var dados;
 
 var margin = {
@@ -101,16 +115,22 @@ d3.json("dados/hist_dilma_camara_2.json", function(error, data) {
 
         cria_seletores_tooltip()
     for (partido in partidos) {
-        desenha_linha(partido)
+        desenha_linha(partido);
     }
-});
+    console.log($())
+    fakeClick(d3.selectAll("circle.Geral").last()[0][0])});
 
 function cria_seletores_tooltip() {
     tooltip = d3.select(".tooltip");
     topo = d3.select("#topo");
-    resto = d3.select("#resto")
-}
+    resto = d3.select("#resto");
+    //coloca tooltip no lugar
+    tooltip.style({
+        "top":"1370px",
+        "left":"450px"
+    })
 
+}
 
 function desenha_linha(variavel) {
     var data = dados[variavel];
@@ -134,10 +154,10 @@ function desenha_linha(variavel) {
             mostra_tooltip(d,variavel);
         })
         .on("mouseout",function (d) {
-            tira_destaque(variavel);
-            esconde_tooltip();
+            if (variavel != "Geral") {
+                tira_destaque(variavel);
+            }
         })
-        .on("mousemove",move_tooltip);
 
     svg.append("g")
         .selectAll("circle")
@@ -164,11 +184,10 @@ function desenha_linha(variavel) {
             mostra_tooltip(d,variavel);
         })
         .on("mouseout",function (d) {
-            tira_destaque(variavel);
-            esconde_tooltip();
+            if (variavel != "Geral") {
+                tira_destaque(variavel);
+            }
         })
-        .on("mousemove",move_tooltip);
-
 }
 
 function poe_destaque(variavel) {
@@ -199,8 +218,7 @@ function mostra_tooltip(d,variavel) {
     tooltip.transition()
         .duration(200)
         .style("opacity", .9);
-    tooltip.style("left", (d3.event.pageX) + "px")
-        .style("top", (d3.event.pageY - 28) + "px");
+
     tooltip.style("border-color",partidos[variavel])
     topo.html(variavel)
     topo.style("background-color",partidos[variavel])
@@ -208,18 +226,6 @@ function mostra_tooltip(d,variavel) {
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
     var year = dateObj.getUTCFullYear();
     resto.html("<b>Data:</b> "+ month +"/" +year+"<br/><b>Governismo:</b> "+ d.valor)
-}
-
-
-function move_tooltip() {
-    tooltip.style("left", (d3.event.pageX) + "px")
-        .style("top", (d3.event.pageY - 28) + "px");
-}
-
-function esconde_tooltip() {
-    tooltip.transition()
-        .duration(200)
-        .style("opacity",0)
 }
 
 function acha_circulo_mais_proximo(variavel,x_) {
