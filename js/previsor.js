@@ -142,6 +142,12 @@ $(function($) {
          return value + '%';
          },*/
         draw : function () {
+            //casa
+            $(".knob").css({
+                "font-size":"65px",
+                "font-family":'freightbook'
+            });
+
 
             // "tron" case
             if(this.$.data('skin') == 'tron') {
