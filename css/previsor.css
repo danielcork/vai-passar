@@ -517,7 +517,7 @@ div#grafico_pe text {
 
 /*flip*/
 .text{
-    overflow:hidden;font-family:flama; font:25px/1 monospace;
+    overflow:hidden;font-family:flama; font:15px/1 monospace;
 }
 
 .text span{
@@ -537,7 +537,7 @@ div#grafico_pe text {
 .ultimo div{
     width: auto;
     display:inline-block;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 0.01em;
     margin-right: 6px;
     text-align: center;
@@ -545,7 +545,8 @@ div#grafico_pe text {
 }
 
 div.texto {
-    font-size: 16px;
+    font-family: flamamedium;
+    font-size: 14px;
     letter-spacing: 0.01em;
     text-align: left;
     color: #5d5d5d;
