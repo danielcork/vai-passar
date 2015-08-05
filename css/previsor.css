@@ -514,3 +514,43 @@ div#grafico_pe text {
     font-family: 'freightbook';
     font-size: 12px;
 }
+
+/*flip*/
+.text{
+    overflow:hidden;font-family:flamabold; font:15px/1 monospace;
+}
+
+.text span{
+    background:#444;color:#fff;
+    margin-bottom:4px;
+
+}
+
+.ultimo {
+    width:auto;
+    padding-left: 10px;
+    text-align: center;
+    border:2px solid;
+    border-color: #868686;
+    padding-top:5px;
+    border-radius: 25px;
+}
+
+.ultimo div{
+    width: auto;
+    display:inline-block;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    margin-right: 6px;
+    text-align: center;
+    color: #5d5d5d;
+}
+
+div.texto {
+    font-family: flamamedium;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    color: #5d5d5d;
+    margin-bottom:4px;
+}
