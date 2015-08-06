@@ -9,6 +9,10 @@ var dict_voto = { 'a': '0',
         $("#entenda").slideToggle("slow");
     });
 
+$("#creditos").click(function(){
+    $("#creditos2").slideToggle("slow");
+});
+
 function abre_dados() { // Carrega dados do previsor
     d3.csv("dados/previsto.csv", function(dados) {
         dados_previsor = dados;
