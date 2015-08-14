@@ -191,8 +191,13 @@ for (i in 1:nrow(previsor_pec)) {
 summary(previsor_plp$resultado)
 
 
+previsor_plp$KIND <- 1
+previsor_pec$KIND <- 2
+
 previsor <- rbind(previsor_first, previsor_pec, previsor_plp)
 
+
+previsor <- select(previsor, -TIPO)
 ### Testando o modelo
 
 write.csv(previsor, "previsto.csv", row.names=FALSE)

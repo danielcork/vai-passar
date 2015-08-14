@@ -203,6 +203,10 @@ previsor$resultado[previsor$resultado > .99] <- .99
 
 previsor_first <- filter(previsor, TIPO=="PL" | TIPO=="REQ" | TIPO=="MPV" | TIPO=="PDC")
 
+previsor_first <- filter(previsor, TIPO=="PL")
+
+previsor_first$KIND <- 0
+
 # write.csv(previsor, "previsto.csv", row.names=FALSE)
 
 
