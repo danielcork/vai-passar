@@ -105,12 +105,6 @@
     <section id="content">
       <h1>Vai Passar?</h1>
 
-   <select>
-        <option>TIPO DE VOTAÇÃO</option>
-        <option value="MP665">MAIORIA ABSOLUTA</option>
-        <option value="MPXXX">MAIORIA RELATIVA</option>
-        <option value="MPYYY">3/5 DE VOTOS</option>
-      </select>
 
    <!--
       <select>
@@ -124,13 +118,16 @@
       </select>
 -->
       <div class="projeto-info">
-        <p>A chance de a Câmara aprovar uma lei depende de como os líderes orientam seus deputados. Dê uma de líder e veja a chance de o projeto passar.</p>
+        <p>Dê uma de líder partidário e veja a chance de seu projeto passar na Câmara.</p>
       </div>
 
-      <div class="ultimo">
-          <div class="texto">Votações analisadas:</div><ul class="text"><li>999</li><li id="nvotacoes">0</li></ul>
-          <div class="texto">até:</div><ul class="text"><li>999/9/99</li><li id="data">0</li></ul>
-      </div>
+   <select>
+        <option>TIPO DE VOTAÇÃO</option>
+        <option id="MAIORIA_SIMPLES" value="0">- Maioria simples</option>
+        <option id="MAIORIA_ABSOLUTA" value="1">- Maioria absoluta (257 votos ou mais) </option>
+        <option id="MAIORIA_CONST" value="2">- Emenda à Constituição (308 votos ou mais)</option>
+      </select>
+
 
       <div class="projeto-info" id="como-vota">
         <h5>Deslize o botão circular e oriente as bancadas</h5>
@@ -169,6 +166,11 @@
               <input class="knob" data-width="260" data-height="260" value="0" data-fgColor="#666666" data-thickness=".05" data-angleOffset="180" data-readOnly="true">
           </div>
 </div>
+      <div class="ultimo">
+          <div class="texto">Votações analisadas:</div><ul class="text"><li>999</li><li id="nvotacoes">0</li></ul>
+          <div class="texto">até:</div><ul class="text"><li>999/9/99</li><li id="data">0</li></ul>
+      </div>
+
 <p> O modelo acerta 9 em cada 10 previsões </p>
       <div style="clear:both"></div>
 
