@@ -1,5 +1,6 @@
 var dados_previsor;
 var cor;
+var quorum_votacao='0';
 var dict_voto = { 'a': '0',
     'b':'1',
     'c':'2'
@@ -26,12 +27,14 @@ abre_dados();
 function descobre_resultado(escolhido) { // Função recebe variáveis escolhidas e devolve o resultado no banco
 	var partidos=Object.keys(dados_previsor[0]);
 	partidos.pop();
+	partidos.pop();
 
 	dados_totais = dados_previsor;
 	for ( var item in partidos ) {
 		indexado = partidos[item];
 		dados_totais= $.grep(dados_totais, function(n, i) { return n[indexado]===escolhido[indexado]; })
 	}
+	dados_totais= $.grep(dados_totais, function(n, i) { return n['KIND']===quorum_votacao; })
 	return dados_totais[0];
 }
 
@@ -52,13 +55,14 @@ function le_escolhido() { // Função lê dados escolhidos e retorna array infor
 	for (var i in partidos_escolhido) {
 		party = partidos_escolhido[i];
 		classi = classes_escolhido[i];
-		if ( ( party =='pt' || party == 'gov' )  &&  classi=='b' ) { // Special Workaround
+		if ( ( party =='pt' || party == 'gov' )  &&  classi=='b' ) { // special Workaround
 			escolhido[party]=dict_voto['a'];
 		}
 		else {
 			escolhido[party]=dict_voto[classi];		
 		}
 	}	
+	
 	return escolhido;
 
 }
@@ -220,5 +224,17 @@ $(function($) {
         });
 });
 
+
+$( "#seleciona_quorum" )
+  .change(function () {
+    var quorum = "";
+    $( "select option:selected" ).each(function() {
+      quorum += $( this ).attr('value');
+    });
+    quorum_votacao=String(quorum);
+    console.log(quorum_votacao);
+    
+  })
+  .change();
 
 

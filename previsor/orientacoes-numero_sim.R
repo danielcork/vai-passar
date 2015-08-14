@@ -200,6 +200,23 @@ previsor <- rbind(previsor_first, previsor_pec, previsor_plp)
 previsor <- select(previsor, -TIPO)
 ### Testando o modelo
 
+for (i in 1:(ncol(previsor)-1)) {
+  previsor[,i] <- gsub("Sim", "2", previsor[,i])
+  previsor[,i] <- gsub("Liberado", "1", previsor[,i])
+  previsor[,i] <- gsub("Não", "0", previsor[,i])
+}
+
+
+previsor$resultado[previsor$resultado > .99] <- .99
+
+
+previsor_first <- filter(previsor, TIPO=="PL" | TIPO=="REQ" | TIPO=="MPV" | TIPO=="PDC")
+
+previsor_first <- filter(previsor, TIPO=="PL")
+
+previsor_first$KIND <- 0
+
+head(previsor[previsor$KIND==2,])
 write.csv(previsor, "previsto.csv", row.names=FALSE)
 
 
