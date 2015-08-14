@@ -2,6 +2,7 @@
 library(tidyr)
 library(dplyr)
 
+
 # Burga, muda essa pasta 
 setwd('/var/www/html/vai-passar/previsor/planilhas/')
 
@@ -77,6 +78,70 @@ votos <- read.csv("votos.csv", , stringsAsFactors=FALSE, sep=';')
 proposicoes <- read.csv("proposicoes.csv", stringsAsFactors=FALSE, sep=';')
 
 
+# Criando série temporal
+votos2 <- read.csv("votos.csv", , stringsAsFactors=FALSE, sep=';')
+
+votos_serie <- votos2
+votos_serie$VOTO[votos_serie$VOTO=="SIM"] <- 1
+votos_serie$VOTO[votos_serie$VOTO=="NAO"] <- 0
+votos_serie$VOTO[votos_serie$VOTO=="OBSTRUCAO"] <- 0
+
+votos_serie <- votos_serie %>%
+  filter(VOTO == "1" | VOTO=="0")
+
+votos_serie$VOTO <- as.numeric(votos_serie$VOTO)
+
+
+votos_serie <- votos_serie %>%
+  group_by(PARTIDO, ID_VOTACAO) %>%
+  summarise(taxa_governismo=(sum(VOTO)/n()))
+  
+datas <- read.csv('orientacoes.csv', stringsAsFactors=FALSE, sep=';', header=FALSE)
+datas <- select(datas, ID_VOTACAO=V1, DATA=V2)
+
+datas <- datas[!duplicated(datas),]
+
+votos_serie <- inner_join(votos_serie, datas , by="ID_VOTACAO")
+
+filter(votos_serie)
+# Abre o banco
+
+
+votos_serie$DATA <- as.Date(votos_serie$DATA, format="%d/%m/%Y")  
+votos_serie <- arrange(votos_serie, DATA)
+
+
+votos_serie <- filter(votos_serie, PARTIDO=="PMDB" | PARTIDO=="PSD" | PARTIDO=="PT" | PARTIDO=="PSDB")
+
+votos_serie <- spread(votos_serie, PARTIDO, taxa_governismo)
+votos_serie <- arrange(votos_serie, DATA)
+
+votos_serie <- mutate(votos_serie, PMDB=(lag(PMDB,5)+lag(PMDB, 1) + lag(PMDB,2 )
+                         + lag(PMDB, 3) + lag(PMDB,4))/5)
+votos_serie <- mutate(votos_serie, PSDB=(lag(PSDB,5)+lag(PSDB, 1) + lag(PSDB,2 )
+                                         + lag(PSDB, 3) + lag(PSDB,4))/5)
+votos_serie <- mutate(votos_serie, PSD=(lag(PSD,5)+lag(PSD, 1) + lag(PSD,2)
+                                         + lag(PSD, 3) + lag(PSD,4))/5)
+votos_serie <- mutate(votos_serie, PT=(lag(PT,5)+lag(PT, 1) + lag(PT,2 )
+                                         + lag(PT, 3) + lag(PT,4))/5)
+
+votos_serie <- votos_serie[!is.na(votos_serie$PMDB),]
+
+
+
+# n = 5
+
+
+
+
+head(votos_serie)
+
+str(votos_serie)
+
+
+
+### Deixa aí
+
 conta_sim <- function(x) {
   n_sim <- try(table(x)[["SIM"]], TRUE)
   return(n_sim)
@@ -104,7 +169,7 @@ library(randomForest)
 votos <- inner_join(votos,orientacoes, by="ID_VOTACAO")
 
 
-votos <- select(votos, ID_VOTACAO, TIPO, dem, gov, minoria, sd,starts_with("p"), resultado=APROV_numero)
+votos <- select(votos, ID_VOTACAO, dem, gov, minoria, sd,starts_with("p"), resultado=APROV_numero)
 votos$resultado <- ifelse(votos$resultado==1, "Sim", "Não") 
 votos$resultado <- as.factor(votos$resultado)
 
@@ -130,10 +195,10 @@ votos <- select(votos, -ptc, -ptdob, -pros, -sd, -psl, -pp, -prb, -psb, -dem)
 for (i in colnames(votos)) {
   votos[[i]] <- as.factor(votos[[i]])
 }
+votos <- inner_join(votos_serie, votos)
 
-# train_lines <- sample(nrow(votos)*.70)
 
-train_lines <- 1:round(nrow(votos)*.65)
+train_lines <- sample(nrow(votos)*.70)
 
 train <- votos[train_lines,]
 test <- votos[-train_lines,]
@@ -142,7 +207,7 @@ test <- votos[-train_lines,]
 
 
 modelo <- randomForest(resultado ~ gov + minoria + pt + pmdb
-                       + psdb + psd + TIPO,
+                       + psdb + psd + PT + PSDB + PSD + PMDB,
                        data=train, ntree=500)
 
 test_forest <- predict(modelo, test, type="prob")[,2]
@@ -159,32 +224,50 @@ plot(ROCO, col="blue")
 
 test_foresto <- predict(modelo, test)
 
-library(gmodels)
-CrossTable(test_foresto, test$resultado)
+table(test_foresto, test$resultado)
 
 # O modelo é bom
 
 modelo <- randomForest(resultado ~ gov + minoria + pt + pmdb
-                       + psdb + psd + TIPO,
+                       + psdb + psd + PSDB + PT + PMDB + PSD,
                        data=votos, ntree=500)
-
 modelo
 
 varImpPlot(modelo)
 ### Previsões
 
+###*****************************************************************###
+###*****************************************************************###
+# Rodar de novo o votos_serie **************************************###
+###*****************************************************************###
+###*****************************************************************###
+
+votos_serie <- arrange(votos_serie, desc(DATA))
+votos_serie <- votos_serie[1:5,]
+
+votos_serie <- select(votos_serie, PMDB, PT, PSD ,PSDB)
+
+votos_serie$id <- "ID"
+votos_serie <- votos_serie %>%
+  group_by(id) %>%
+  summarise(PSDB=mean(PSDB), PT=mean(PT), PMDB=mean(PMDB), PSD=mean(PSD))
+
+
 vari <- c("Sim", "Não", "Liberado")
 varo <- c("Sim", "Não")
-
-vara <- c("MPV", "PDC", "PEC", "PL", "PLP", "REQ")
 previsor <- expand.grid(varo, vari, vari, 
-            vari, vari,  varo, vara)
+            vari, vari,  varo)
 
 colnames(previsor) <- c("gov", "minoria",  "pmdb", 
-                        "psd", "psdb",  "pt", "TIPO")
+                        "psd", "psdb",  "pt")
 
 previsor <- as.data.frame(previsor, stringsAsFactors=FALSE)
 
+previsor$PMDB <- votos_serie$PMDB
+previsor$PSDB <- votos_serie$PSDB
+previsor$PSD <- votos_serie$PSD
+previsor$PT <- votos_serie$PT
+  
 
 previsor$resultado <- predict(modelo,previsor, type="prob")[,2]
 
@@ -201,9 +284,7 @@ for (i in 1:(ncol(previsor)-1)) {
 previsor$resultado[previsor$resultado > .99] <- .99
 
 
-previsor_first <- filter(previsor, TIPO=="PL" | TIPO=="REQ" | TIPO=="MPV" | TIPO=="PDC")
-
-# write.csv(previsor, "previsto.csv", row.names=FALSE)
+write.csv(previsor, "previsto_time.csv", row.names=FALSE)
 
 
 ## Gera csv com data ultima votação e numero de linhas

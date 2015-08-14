@@ -2,6 +2,10 @@
 library(tidyr)
 library(dplyr)
 
+setwd('/var/www/html/vai-passar/previsor/')
+
+source('orientacoes2.R')
+
 # Burga, muda essa pasta 
 setwd('/var/www/html/vai-passar/previsor/planilhas/')
 
@@ -94,8 +98,6 @@ votos <- inner_join(votos, proposicoes)
 
 
 
-votos$APROV_numero <- ifelse(votos$votos_sim >= (votos$contagem)/2, 1, 0)
-votos$APROV_numero[votos$TIPO=="PEC"] <- ifelse(votos$votos_sim[votos$TIPO=="PEC"] >= 308, 1, 0)
 
 
 library(randomForest)
@@ -104,9 +106,7 @@ library(randomForest)
 votos <- inner_join(votos,orientacoes, by="ID_VOTACAO")
 
 
-votos <- select(votos, ID_VOTACAO, TIPO, dem, gov, minoria, sd,starts_with("p"), resultado=APROV_numero)
-votos$resultado <- ifelse(votos$resultado==1, "Sim", "Não") 
-votos$resultado <- as.factor(votos$resultado)
+votos <- select(votos, ID_VOTACAO, contagem, dem, TIPO, gov, minoria, sd,starts_with("p"), resultado=votos_sim)
 
 nome_colunas <- colnames(votos)[2:length(colnames(votos))]
 
@@ -123,44 +123,17 @@ for (i in nome_colunas) {
 #Excluindo PSOL, pois possui muitas NAs
 # Também vamos excluir ptc, ptdob, pros e sd
 
-votos <- select(votos, -ptc, -ptdob, -pros, -sd, -psl, -pp, -prb, -psb, -dem)
+votos <- select(votos, -ptc, -ptdob, -pros, -sd)
 
 
 ### Rodando
 for (i in colnames(votos)) {
-  votos[[i]] <- as.factor(votos[[i]])
-}
+  if (i != "resultado" & i !="contagem") {
+    votos[[i]] <- as.factor(votos[[i]])
+  }
 
-# train_lines <- sample(nrow(votos)*.70)
+  }
 
-train_lines <- 1:round(nrow(votos)*.65)
-
-train <- votos[train_lines,]
-test <- votos[-train_lines,]
-
-
-
-
-modelo <- randomForest(resultado ~ gov + minoria + pt + pmdb
-                       + psdb + psd + TIPO,
-                       data=train, ntree=500)
-
-test_forest <- predict(modelo, test, type="prob")[,2]
-
-test_resultado <- ifelse(test$resultado=="Sim", 1, 0) 
-
-
-
-library(pROC)
-ROCO <- roc(test_resultado, test_forest )
-
-plot(ROCO, col="blue")
-
-
-test_foresto <- predict(modelo, test)
-
-library(gmodels)
-CrossTable(test_foresto, test$resultado)
 
 # O modelo é bom
 
@@ -186,52 +159,74 @@ colnames(previsor) <- c("gov", "minoria",  "pmdb",
 previsor <- as.data.frame(previsor, stringsAsFactors=FALSE)
 
 
-previsor$resultado <- predict(modelo,previsor, type="prob")[,2]
+
+previsor$resultado <- predict(modelo,previsor)
 
 
 
-head(previsor)
-for (i in 1:(ncol(previsor)-1)) {
-  previsor[,i] <- gsub("Sim", "2", previsor[,i])
-  previsor[,i] <- gsub("Liberado", "1", previsor[,i])
-  previsor[,i] <- gsub("Não", "0", previsor[,i])
-}
-
-
-previsor$resultado[previsor$resultado > .99] <- .99
-
-
-previsor_first <- filter(previsor, TIPO=="PL" | TIPO=="REQ" | TIPO=="MPV" | TIPO=="PDC")
-
-# write.csv(previsor, "previsto.csv", row.names=FALSE)
+# write.csv(previsor, "previsto2.csv", row.names=FALSE)
 
 
 ## Gera csv com data ultima votação e numero de linhas
 
 
-orientacoes <- read.csv('orientacoes.csv', stringsAsFactors=FALSE, sep=';', header=FALSE)
+### FILTREMOS PECs e PLPs
+
+previsor_pec <- filter(previsor, TIPO=="PEC")
+
+previsor_plp <- filter(previsor, TIPO=="PLP")
+
+previsor_plp$resultado <- previsor_plp$resultado/513 
+
+for (i in 1:nrow(previsor_pec)) {
+  if ( previsor_pec$resultado[i] <= 307.8) {
+    previsor_pec$resultado[i] <- previsor_pec$resultado[i] * (1/307.8) * (1/2)
+  }
+  else {
+    previsor_pec$resultado[i] <- previsor_pec$resultado[i] * (1/205.2) * (1/2)
+  }
+}
 
 
-datas <- as.Date(orientacoes$V2, format="%d/%m/%Y")
-
-datas <- sort(datas, decreasing=TRUE)
-
-proposicoes <- read.csv("proposicoes.csv", stringsAsFactors=FALSE, sep=';')
-
-votacoes <- data.frame(data=datas[1], nvotacoes=nrow(proposicoes))
-
-votacoes$data <- as.character(votacoes$data)
+summary(previsor_plp$resultado)
 
 
-dato <- strsplit(votacoes$data, '-')
-ano <- as.numeric(dato[[1]][[1]])-2000
-votacoes$data <- paste0(c(dato[[1]][3], '/', dato[[1]][2], '/', as.character(ano)), collapse='')
-library(RJSONIO)
+previsor <- rbind(previsor_first, previsor_pec, previsor_plp)
 
-votacoes <- toJSON(votacoes)
-write(votacoes, "votacoes.json")
+### Testando o modelo
+
+write.csv(previsor, "previsto.csv", row.names=FALSE)
 
 
-# Abre o banco
 
 
+
+
+
+
+
+# votos$previsor <- predict(modelo,votos)
+
+# plot(votos$previsor, votos$resultado)
+
+
+# votos$resultado2 <- ifelse(votos$resultado >= (votos$contagem)/2, 1, 0)
+# votos$resultado2[votos$TIPO=="PEC"] <- ifelse(votos$resultado[votos$TIPO=="PEC"] >= 308, 1, 0)
+
+# votos$previsor2 <- ifelse(votos$previsor >= (votos$contagem)/2, 1, 0)
+# votos$previsor2[votos$TIPO=="PEC"] <- ifelse(votos$previsor[votos$TIPO=="PEC"] >= 308, 1, 0)
+
+
+# media_contagem <- mean(votos$contagem)
+
+# votos$resultado3 <- ifelse(votos$resultado >= (media_contagem)/2, 1, 0)
+# votos$resultado3[votos$TIPO=="PEC"] <- ifelse(votos$resultado[votos$TIPO=="PEC"] >= 308, 1, 0)
+
+# votos$previsor3 <- ifelse(votos$previsor >= (media_contagem-50)/2, 1, 0)
+# votos$previsor3[votos$TIPO=="PEC"] <- ifelse(votos$previsor[votos$TIPO=="PEC"] >= 308, 1, 0)
+
+
+
+# table(votos$resultado3, votos$previsor3)
+
+# table(votos$resultado2, votos$previsor3)
