@@ -232,7 +232,7 @@ $( "#seleciona_quorum" )
       quorum += $( this ).attr('value');
     });
     quorum_votacao=String(quorum);
-    console.log(quorum_votacao);
+    muda_valores();
     
   })
   .change();
