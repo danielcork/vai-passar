@@ -192,6 +192,8 @@ previsor$resultado <- predict(modelo,previsor, type="prob")[,2]
 
 head(previsor)
 
+previsor_first <- previsor
+
 
 # write.csv(previsor, "previsto.csv", row.names=FALSE)
 
