@@ -1,23 +1,10 @@
-# Este banco indica quais orientacoes de votacoes para cada partido e para o governo
-library(tidyr)
 library(dplyr)
+library(tidyr)
 
 
+####
 setwd('/var/www/html/vai-passar/previsor/planilhas/')
-
 orientacoes <- read.csv('orientacoes.csv', stringsAsFactors=FALSE, sep=';', header=FALSE)
-# Abre o banco
-
-
-
-# orientacoes$V5[orientacoes$V5=="Não"] <- 0
-# orientacoes$V5[orientacoes$V5=="Sim"] <- 1
-# orientacoes$V5[orientacoes$V5=="Liberado"] <- NA
-# orientacoes$V5[orientacoes$V5=="Obstrução"] <- NA
-# Processa a variável V5
-
-
-
 orientacoes$V4[orientacoes$V4=="PmdbPpPtbDem..."] <- "Pmdb|Pp|Ptb|Dem"
 orientacoes$V4[orientacoes$V4=="PmdbPpPtbDemPscPhsPen"] <- "Pmdb|Pp|Ptb|Dem|Psc|Phs|Pen"
 orientacoes$V4[orientacoes$V4=="PmdbPpPtbDemSdPscPhsPen"] <- "Pmdb|Pp|Ptb|Dem|Sd|Psc|Phs|Pen"
@@ -34,223 +21,143 @@ orientacoes$V4[orientacoes$V4=="GOV."] <- "Gov"
 orientacoes$V4[orientacoes$V4=="Repr.PSOL"] <- "psol"
 orientacoes$V4[orientacoes$V4=="PtPsdPrPdtProsPcdob"] <- "Pt|Psd|Pr|Pdt|Pros|Pcdob"
 orientacoes$V4[orientacoes$V4=="PsdbPsbPps"] <- "Psdb|Psb|Pps"
-
-# Altera as entradas pra facilitar trabalho
-# Estamos separando partidos com '|', para poder separa-los em colunas
-# posteriormente
-
 orientacoes$V4 <- tolower(orientacoes$V4)
-# transforma partidos tudo para letras minusculas
-
 orientacoes <- orientacoes %>%
   transform(V4 = strsplit(V4, "\\|")) %>%
   unnest(V4)
-# Separa as variaveis 
-
-
 colnames(orientacoes) <- c("ID_VOTACAO", "DATA", "HORA", "PARTIDO", "ORIENTACAO")
-# Altera nomes das colunas de "V4" para nomes pertinentes
-
 orientacoes <- orientacoes[!duplicated(orientacoes),]
-# Remove valores duplicados
-
-
-# Obter apenas a orientacao do governo. Para isso, copiamos o df:
-
-
-
-
 orientacoes <- mutate(orientacoes, ORIENTACAO=ifelse(ORIENTACAO=="Obstrução", "Não", ORIENTACAO))
-
-
-
-
-
 orientacoes <- spread(orientacoes, PARTIDO, ORIENTACAO)
-
-#  orientacoes <- select(orientacoes, ID_VOTACAO, pt, pmdb, psd, pcdob, pdt, prb, pr , pros)
-
-
-
 votos <- read.csv("votos.csv", , stringsAsFactors=FALSE, sep=';')
-
 proposicoes <- read.csv("proposicoes.csv", stringsAsFactors=FALSE, sep=';')
-
-
-# Criando série temporal
 votos2 <- read.csv("votos.csv", , stringsAsFactors=FALSE, sep=';')
-
 votos_serie <- votos2
 votos_serie$VOTO[votos_serie$VOTO=="SIM"] <- 1
 votos_serie$VOTO[votos_serie$VOTO=="NAO"] <- 0
 votos_serie$VOTO[votos_serie$VOTO=="OBSTRUCAO"] <- 0
-
 votos_serie <- votos_serie %>%
   filter(VOTO == "1" | VOTO=="0")
-
 votos_serie$VOTO <- as.numeric(votos_serie$VOTO)
-
-
 votos_serie <- votos_serie %>%
   group_by(PARTIDO, ID_VOTACAO) %>%
   summarise(taxa_governismo=(sum(VOTO)/n()))
-  
 datas <- read.csv('orientacoes.csv', stringsAsFactors=FALSE, sep=';', header=FALSE)
 datas <- select(datas, ID_VOTACAO=V1, DATA=V2)
-
 datas <- datas[!duplicated(datas),]
-
 votos_serie <- inner_join(votos_serie, datas , by="ID_VOTACAO")
-
 filter(votos_serie)
-# Abre o banco
-
-
 votos_serie$DATA <- as.Date(votos_serie$DATA, format="%d/%m/%Y")  
 votos_serie <- arrange(votos_serie, DATA)
-
-
 votos_serie <- filter(votos_serie, PARTIDO=="PMDB" | PARTIDO=="PSD" | PARTIDO=="PT" | PARTIDO=="PSDB")
-
 votos_serie <- spread(votos_serie, PARTIDO, taxa_governismo)
 votos_serie <- arrange(votos_serie, DATA)
-
 votos_serie <- mutate(votos_serie, PMDB=(lag(PMDB,5)+lag(PMDB, 1) + lag(PMDB,2 )
-                         + lag(PMDB, 3) + lag(PMDB,4))/5)
+                                         + lag(PMDB, 3) + lag(PMDB,4))/5)
 votos_serie <- mutate(votos_serie, PSDB=(lag(PSDB,5)+lag(PSDB, 1) + lag(PSDB,2 )
                                          + lag(PSDB, 3) + lag(PSDB,4))/5)
 votos_serie <- mutate(votos_serie, PSD=(lag(PSD,5)+lag(PSD, 1) + lag(PSD,2)
-                                         + lag(PSD, 3) + lag(PSD,4))/5)
+                                        + lag(PSD, 3) + lag(PSD,4))/5)
 votos_serie <- mutate(votos_serie, PT=(lag(PT,5)+lag(PT, 1) + lag(PT,2 )
-                                         + lag(PT, 3) + lag(PT,4))/5)
-
+                                       + lag(PT, 3) + lag(PT,4))/5)
 votos_serie <- votos_serie[!is.na(votos_serie$PMDB),]
-
-
-
-# n = 5
-
-
-
-
-head(votos_serie)
-
-str(votos_serie)
-
-
-
-### Deixa aí
-
 conta_sim <- function(x) {
   n_sim <- try(table(x)[["SIM"]], TRUE)
   return(n_sim)
-  
 }
-
 votos <- votos %>%
   filter((VOTO=="SIM" | VOTO=="NAO")) %>%
   mutate(votos_sim=ifelse(VOTO=="SIM", 1, 0)) %>%
   group_by(ID_VOTACAO) %>%
   summarise(contagem=n(), votos_sim=sum(votos_sim))
-
 votos <- inner_join(votos, proposicoes)
-
-
-
-
 votos$APROV_numero <- ifelse(votos$votos_sim >= (votos$contagem)/2, 1, 0)
 votos$APROV_numero[votos$TIPO=="PEC"] <- ifelse(votos$votos_sim[votos$TIPO=="PEC"] >= 308, 1, 0)
-
-
-
-
 votos <- inner_join(votos,orientacoes, by="ID_VOTACAO")
-
-
-votos <- select(votos, ID_VOTACAO, DATA.y, HORA.y, dem, gov, minoria, pmdb, psd, pt,resultado=APROV_numero)
+votos <- select(votos, ID_VOTACAO, TIPO, EMENTA, DATA.y, HORA.y, psdb, dem, gov, minoria, pmdb, psd, pt,resultado=APROV_numero)
 votos$resultado <- ifelse(votos$resultado==1, "Sim", "Não") 
 
 
-### Rodando
-### Previsões
+####
 
-###*****************************************************************###
-###*****************************************************************###
-# Rodar de novo o votos_serie **************************************###
-###*****************************************************************###
-###*****************************************************************###
-
-votos_serie <- arrange(votos_serie, desc(DATA))
-votos_serie <- votos_serie[1:5,]
-
-votos_serie <- select(votos_serie, PMDB, PT, PSD ,PSDB)
-
-votos_serie$id <- "ID"
-votos_serie <- votos_serie %>%
-  group_by(id) %>%
-  summarise(PSDB=mean(PSDB), PT=mean(PT), PMDB=mean(PMDB), PSD=mean(PSD))
+### Transformar o TIPO dos votos
+votos <- mutate(votos, KIND=ifelse(TIPO=="PEC", 2, TIPO))
+votos <- mutate(votos, KIND=ifelse(TIPO=="PLP", 1, KIND))
+votos <- mutate(votos, KIND=ifelse((TIPO!="PEC" & TIPO !="PLP"), 0, KIND))
 
 
-vari <- c("Sim", "Não", "Liberado")
-varo <- c("Sim", "Não")
-previsor <- expand.grid(varo, vari, vari, 
-            vari, vari,  varo)
+setwd('/var/www/html/vai-passar/')
 
-colnames(previsor) <- c("gov", "minoria",  "pmdb", 
-                        "psd", "psdb",  "pt")
 
-previsor <- as.data.frame(previsor, stringsAsFactors=FALSE)
+# Teste
 
-previsor$PMDB <- votos_serie$PMDB
-previsor$PSDB <- votos_serie$PSDB
-previsor$PSD <- votos_serie$PSD
-previsor$PT <- votos_serie$PT
+previsto <- read.csv('dados//previsto.csv')
+
+df <- votos
+
+
+
+
+previsto <- mutate(previsto, confusao1=ifelse(resultado>.6 | resultado <.4, 0, 1))
+previsto <- mutate(previsto, confusao2=ifelse(resultado>.7 | resultado <.3, 0, 1))
+previsto <- mutate(previsto, confusao3=ifelse(resultado>.8 | resultado <.2, 0, 1))
+
+previsto <- mutate(previsto, resultado=ifelse(resultado>=.5, 1, 0))
+
+colunas_df <- colnames(previsto)
+colunas_df <- colunas_df[colunas_df!="resultado"]
+colunas_df <- colunas_df[colunas_df!="confusao1"]
+colunas_df <- colunas_df[colunas_df!="confusao2"]
+colunas_df <- colunas_df[colunas_df!="confusao3"]
+
+for (i in colunas_df) {
+  print(i)
+  df[[i]][df[[i]]=="Não"] <- 0
+  df[[i]][df[[i]]=="Liberado"] <- 1
+  df[[i]][df[[i]]=="Sim"] <- 2
+}
+i <- "resultado"
+df[[i]][df[[i]]=="Não"] <- 0
+df[[i]][df[[i]]=="Sim"] <- 1
+
+
+
+valida <- function(previsto, df) {
+  colunas_prev <- colunas_df
+  for (i in colunas_prev ) {
+    previsto <- previsto[previsto[[i]]==df[[i]],]
+  }
+  return(c(previsto$resultado, previsto$confusao1, previsto$confusao2,
+           previsto$confusao3))
   
-
-previsor$resultado <- predict(modelo,previsor, type="prob")[,2]
-
-
-
-head(previsor)
-for (i in 1:(ncol(previsor)-1)) {
-  previsor[,i] <- gsub("Sim", "2", previsor[,i])
-  previsor[,i] <- gsub("Liberado", "1", previsor[,i])
-  previsor[,i] <- gsub("Não", "0", previsor[,i])
 }
 
 
-previsor$resultado[previsor$resultado > .99] <- .99
+df$previsto <- NA
+df$confusao1 <- NA
+df$confusao2 <- NA
+df$confusao3 <- NA
 
 
-write.csv(previsor, "previsto_time.csv", row.names=FALSE)
+df$errou <- "Nao"
+for (i in 1:nrow(df)) {
+  banco <- df[i,]
+  val <- valida(previsto, banco)
+  print(val)
+  df[["previsto"]][i] <- val[1]
+  df[["confusao1"]][i] <- val[2]
+  df[["confusao2"]][i] <- val[3]
+  df[["confusao3"]][i] <- val[4]
+  if (df[["previsto"]][i] != df[["resultado"]][i]  )
+    df[["errou"]][i] <- "Sim"
+}
+
+df$DATA.y <- as.Date(df$DATA.y, format="%d/%m/%Y")
 
 
-## Gera csv com data ultima votação e numero de linhas
+df <- df[order(df$DATA.y),]
 
+df <- select(df, TIPO, DATA.y, EMENTA, resultado, previsto, errou, confusao1,
+             confusao2, confusao3)
 
-orientacoes <- read.csv('orientacoes.csv', stringsAsFactors=FALSE, sep=';', header=FALSE)
-
-
-datas <- as.Date(orientacoes$V2, format="%d/%m/%Y")
-
-datas <- sort(datas, decreasing=TRUE)
-
-proposicoes <- read.csv("proposicoes.csv", stringsAsFactors=FALSE, sep=';')
-
-votacoes <- data.frame(data=datas[1], nvotacoes=nrow(proposicoes))
-
-votacoes$data <- as.character(votacoes$data)
-
-
-dato <- strsplit(votacoes$data, '-')
-ano <- as.numeric(dato[[1]][[1]])-2000
-votacoes$data <- paste0(c(dato[[1]][3], '/', dato[[1]][2], '/', as.character(ano)), collapse='')
-library(RJSONIO)
-
-votacoes <- toJSON(votacoes)
-write(votacoes, "votacoes.json")
-
-
-# Abre o banco
-
-
+write.csv(df, "relatório-erros.csv", row.names=FALSE)
