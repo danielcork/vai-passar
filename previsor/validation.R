@@ -95,7 +95,7 @@ previsto <- read.csv('dados//previsto.csv')
 
 df <- votos
 
-
+previsto$resultado2 <- previsto$resultado
 
 
 previsto <- mutate(previsto, confusao1=ifelse(resultado>.6 | resultado <.4, 0, 1))
@@ -106,6 +106,7 @@ previsto <- mutate(previsto, resultado=ifelse(resultado>=.5, 1, 0))
 
 colunas_df <- colnames(previsto)
 colunas_df <- colunas_df[colunas_df!="resultado"]
+colunas_df <- colunas_df[colunas_df!="resultado2"]
 colunas_df <- colunas_df[colunas_df!="confusao1"]
 colunas_df <- colunas_df[colunas_df!="confusao2"]
 colunas_df <- colunas_df[colunas_df!="confusao3"]
@@ -128,7 +129,7 @@ valida <- function(previsto, df) {
     previsto <- previsto[previsto[[i]]==df[[i]],]
   }
   return(c(previsto$resultado, previsto$confusao1, previsto$confusao2,
-           previsto$confusao3))
+           previsto$confusao3, previsto$resultado2))
   
 }
 
@@ -137,7 +138,7 @@ df$previsto <- NA
 df$confusao1 <- NA
 df$confusao2 <- NA
 df$confusao3 <- NA
-
+df$resultado2 <- NA
 
 df$errou <- "Nao"
 for (i in 1:nrow(df)) {
@@ -148,6 +149,7 @@ for (i in 1:nrow(df)) {
   df[["confusao1"]][i] <- val[2]
   df[["confusao2"]][i] <- val[3]
   df[["confusao3"]][i] <- val[4]
+  df[["resultado2"]][i] <- val[5]
   if (df[["previsto"]][i] != df[["resultado"]][i]  )
     df[["errou"]][i] <- "Sim"
 }
@@ -158,6 +160,6 @@ df$DATA.y <- as.Date(df$DATA.y, format="%d/%m/%Y")
 df <- df[order(df$DATA.y),]
 
 df <- select(df, TIPO, DATA.y, EMENTA, resultado, previsto, errou, confusao1,
-             confusao2, confusao3)
+             confusao2, confusao3, resultado2)
 
 write.csv(df, "relatório-erros.csv", row.names=FALSE)

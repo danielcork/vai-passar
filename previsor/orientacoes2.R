@@ -176,7 +176,7 @@ varImpPlot(modelo)
 vari <- c("Sim", "Não", "Liberado")
 varo <- c("Sim", "Não")
 
-vara <- c("MPV", "PDC", "PEC", "PL", "PLP", "REQ")
+vara <- c("MPV", "PDC", "PEC", "PL", "PLP", "REQ", "REC")
 previsor <- expand.grid(varo, vari, vari, 
             vari, vari,  varo, vara)
 

@@ -149,7 +149,7 @@ varImpPlot(modelo)
 vari <- c("Sim", "Não", "Liberado")
 varo <- c("Sim", "Não")
 
-vara <- c("MPV", "PDC", "PEC", "PL", "PLP", "REQ")
+vara <- c("MPV", "PDC", "PEC", "PL", "PLP", "REQ", "REC")
 previsor <- expand.grid(varo, vari, vari, 
             vari, vari,  varo, vara)
 
@@ -193,6 +193,9 @@ summary(previsor_plp$resultado)
 
 previsor_plp$KIND <- 1
 previsor_pec$KIND <- 2
+
+
+previsor_first$KIND <- 0
 
 previsor <- rbind(previsor_first, previsor_pec, previsor_plp)
 
