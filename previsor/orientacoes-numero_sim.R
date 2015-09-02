@@ -52,7 +52,7 @@ orientacoes <- orientacoes %>%
 # Separa as variaveis 
 
 
-colnames(orientacoes) <- c("ID_VOTACAO", "DATA", "HORA", "PARTIDO", "ORIENTACAO")
+colnames(orientacoes) <- c("ID_VOTACAO", "DATA", "HORA", "ORIENTACAO", "PARTIDO")
 # Altera nomes das colunas de "V4" para nomes pertinentes
 
 orientacoes <- orientacoes[!duplicated(orientacoes),]
@@ -212,10 +212,6 @@ for (i in 1:(ncol(previsor)-1)) {
 
 previsor$resultado[previsor$resultado > .99] <- .99
 
-
-previsor_first <- filter(previsor, TIPO=="PL" | TIPO=="REQ" | TIPO=="MPV" | TIPO=="PDC")
-
-previsor_first <- filter(previsor, TIPO=="PL")
 
 previsor_first$KIND <- 0
 

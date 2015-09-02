@@ -1,6 +1,8 @@
 # Este banco indica quais orientacoes de votacoes para cada partido e para o governo
 library(tidyr)
 library(dplyr)
+library(stringr)
+
 
 # Burga, muda essa pasta 
 setwd('/var/www/html/vai-passar/previsor/planilhas/')
@@ -48,7 +50,7 @@ orientacoes <- orientacoes %>%
 # Separa as variaveis 
 
 
-colnames(orientacoes) <- c("ID_VOTACAO", "DATA", "HORA", "PARTIDO", "ORIENTACAO")
+colnames(orientacoes) <- c("ID_VOTACAO", "DATA", "HORA",  "ORIENTACAO","PARTIDO")
 # Altera nomes das colunas de "V4" para nomes pertinentes
 
 orientacoes <- orientacoes[!duplicated(orientacoes),]
@@ -60,11 +62,11 @@ orientacoes <- orientacoes[!duplicated(orientacoes),]
 
 
 
-orientacoes <- mutate(orientacoes, ORIENTACAO=ifelse(ORIENTACAO=="Obstrução", "Não", ORIENTACAO))
+orientacoes <- mutate(orientacoes, ORIENTACAO=ifelse(str_detect(ORIENTACAO,"Obstrução"), "Não", ORIENTACAO))
 
 
 
-
+orientacoes <- orientacoes[!duplicated(orientacoes),]
 
 orientacoes <- spread(orientacoes, PARTIDO, ORIENTACAO)
 
