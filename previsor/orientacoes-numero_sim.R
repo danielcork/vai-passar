@@ -176,6 +176,10 @@ previsor_pec <- filter(previsor, TIPO=="PEC")
 
 previsor_plp <- filter(previsor, TIPO=="PLP")
 
+previsor_dois <- filter(previsor, TIPO=="PL")
+
+
+
 previsor_plp$resultado <- previsor_plp$resultado/513 
 
 for (i in 1:nrow(previsor_pec)) {
@@ -188,16 +192,31 @@ for (i in 1:nrow(previsor_pec)) {
 }
 
 
+
+for (i in 1:nrow(previsor_dois)) {
+  if ( previsor_dois$resultado[i] <= 342) {
+    previsor_dois$resultado[i] <- previsor_dois$resultado[i] * (1/342) * (1/2)
+  }
+  else {
+    previsor_dois$resultado[i] <- previsor_dois$resultado[i] * (1/171) * (1/2)
+  }
+}
+
+
+
 summary(previsor_plp$resultado)
 
 
 previsor_plp$KIND <- 1
 previsor_pec$KIND <- 2
 
+previsor_dois$KIND <- 3
 
 previsor_first$KIND <- 0
 
-previsor <- rbind(previsor_first, previsor_pec, previsor_plp)
+previsor <- rbind(previsor_first, previsor_pec, previsor_plp
+                  #, previsor_dois
+                  )
 
 
 previsor <- select(previsor, -TIPO)
@@ -213,9 +232,9 @@ for (i in 1:(ncol(previsor)-1)) {
 previsor$resultado[previsor$resultado > .99] <- .99
 
 
-previsor_first$KIND <- 0
+# previsor_first$KIND <- 0
 
-head(previsor[previsor$KIND==2,])
+# head(previsor[previsor$KIND==2,])
 write.csv(previsor, "previsto.csv", row.names=FALSE)
 
 
