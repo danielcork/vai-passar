@@ -38,6 +38,11 @@ orientacoes$V4[orientacoes$V4=="GOV."] <- "Gov"
 orientacoes$V4[orientacoes$V4=="Repr.PSOL"] <- "psol"
 orientacoes$V4[orientacoes$V4=="PtPsdPrPdtProsPcdob"] <- "Pt|Psd|Pr|Pdt|Pros|Pcdob"
 orientacoes$V4[orientacoes$V4=="PsdbPsbPps"] <- "Psdb|Psb|Pps"
+orientacoes$V4[orientacoes$V4=="PmdbPen"] <- "Pmdb|Pen"
+orientacoes$V4[orientacoes$V4=="PsdbPsbPps"] <- "Psdb|Psb|Pps"
+orientacoes$V4[orientacoes$V4=="PpPtbPscPhs"] <- "Pp|Ptb|Psc|Phs"
+orientacoes$V4[orientacoes$V4=="PrbPtnPmnPrpPsdcPtcPslPtdoB"] <- "Prb|Ptn|Pmn|Prp|Psdc|Ptc|Psl|PtdoB"
+orientacoes$V4[orientacoes$V4=="Repr.REDE"] <- "REDE"
 
 # Altera as entradas pra facilitar trabalho
 # Estamos separando partidos com '|', para poder separa-los em colunas
